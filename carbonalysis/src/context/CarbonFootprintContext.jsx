@@ -3,7 +3,6 @@ import React, { createContext, useState } from 'react';
 export const carbonFootprintContext = createContext();
 
 export const MainProvider = ({ children }) => {
-  const [user_id, setUser_id] = useState('');
   const [householdSize, setHouseholdSize] = useState('');
   const [homeSize, setHomeSize] = useState('');
   const [food, setFood] = useState('');
@@ -26,6 +25,7 @@ export const MainProvider = ({ children }) => {
   });
 
   const [recycling, setRecycling] = useState(0);
+  const [user, setUser] = useState({});
 
   const [car, setCar] = useState('');
   const [fuel, setFuel] = useState({
@@ -44,7 +44,6 @@ export const MainProvider = ({ children }) => {
   return (
     <carbonFootprintContext.Provider
       value={{
-        user_id, setUser_id,
         householdSize, setHouseholdSize,
         homeSize, setHomeSize,
         food, setFood,
@@ -62,7 +61,8 @@ export const MainProvider = ({ children }) => {
         fuel, setFuel,
         utility, setUtility,
         offsets, setOffsets,
-        totalEmissions, setTotalEmissions
+        totalEmissions, setTotalEmissions,
+        user, setUser
       }}
     >
       {children}

@@ -5,8 +5,8 @@ import FormPages from '../form-pages/FormPages';
 import Emissions from '../form-pages/Emissions';
 import Homepage from '../homepage/Homepage';
 import Login from '../login/Login';
-import Register from '../register/Register'
-import Dashboard from '../dashboard/Dashboard'
+import Register from '../register/Register';
+import Dashboard from '../dashboard/Dashboard';
 import Navbar from '../navbar/Navbar'
 
 function App() {
