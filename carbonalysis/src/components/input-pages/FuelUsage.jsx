@@ -26,34 +26,39 @@ export default function InputAdornments() {
 
   const {
     fuel, setFuel,
-    utility, setUtility,
-    offsets, setOffsets,
-    totalEmissions, setTotalEmissions
   } = useContext(carbonFootprintContext);
 
   const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+    if (Number(event.target.value) < 0) {
+      return null;
+    } else {
+      setFuel({ ...fuel, [prop]: event.target.value });
+    }
   };
 
   return (
     <div className={classes.root}>
       <div>
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">Total miles driven</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-totalMiles">Total miles driven</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
+            id="outlined-adornment-totalMiles"
+            value={fuel.totalMiles}
+            onChange={handleChange('totalMiles')}
             labelWidth={60}
+            type="number"
+            min="0"
           />
         </FormControl>
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">Miles per gallon</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-mpg">Miles per gallon</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
+            id="outlined-adornment-mpg"
+            value={fuel.mpg}
+            onChange={handleChange('mpg')}
             labelWidth={60}
+            type="number"
+            min="0"
           />
         </FormControl>
       </div>

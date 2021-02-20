@@ -25,52 +25,53 @@ export default function InputAdornments() {
   const classes = useStyles();
 
   const {
-    fuel, setFuel,
     utility, setUtility,
-    offsets, setOffsets,
-    totalEmissions, setTotalEmissions
   } = useContext(carbonFootprintContext);
 
   const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+    if (Number(event.target.value) < 0) {
+      return null;
+    } else {
+      setUtility({ ...utility, [prop]: event.target.value });
+    }
   };
 
   return (
     <div className={classes.root}>
       <div>
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">Kilowatt hours</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-kilowatt">Kilowatt hours</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
+            id="outlined-adornment-kilowatt"
+            value={utility.kilowatt}
+            onChange={handleChange('kilowatt')}
             labelWidth={60}
           />
         </FormControl>
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">Natural gas usage (therms)</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-naturalGas">Natural gas usage (therms)</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
+            id="outlined-adornment-naturalGas"
+            value={utility.naturalGas}
+            onChange={handleChange('naturalGas')}
             labelWidth={60}
           />
         </FormControl>
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">Propane gallons</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-propane">Propane gallons</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
+            id="outlined-adornment-propane"
+            value={utility.propane}
+            onChange={handleChange('propane')}
             labelWidth={60}
           />
         </FormControl>
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">Fuel gallons</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-fuel">Fuel gallons</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
+            id="outlined-adornment-fuel"
+            value={utility.fuel}
+            onChange={handleChange('fuel')}
             labelWidth={60}
           />
         </FormControl>

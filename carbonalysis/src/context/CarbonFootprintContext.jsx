@@ -24,8 +24,16 @@ export const MainProvider = ({ children }) => {
   });
 
   const [car, setCar] = useState('');
-  const [fuel, setFuel] = useState('');
-  const [utility, setUtility] = useState('');
+  const [fuel, setFuel] = useState({
+    totalMiles: '',
+    mpg: ''
+  });
+  const [utility, setUtility] = useState({
+    kilowatt: '',
+    naturalGas: '',
+    propane: '',
+    fuel: ''
+  });
   const [offsets, setOffsets] = useState('');
   const [totalEmissions, setTotalEmissions] = useState('');
 

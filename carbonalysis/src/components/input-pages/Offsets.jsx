@@ -25,25 +25,22 @@ export default function InputAdornments() {
   const classes = useStyles();
 
   const {
-    fuel, setFuel,
-    utility, setUtility,
     offsets, setOffsets,
-    totalEmissions, setTotalEmissions
   } = useContext(carbonFootprintContext);
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handleChange = (event) => {
+    setOffsets(event.target.value);
   };
 
   return (
     <div className={classes.root}>
       <div>
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">How many trees</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-offsets">How many trees</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
+            id="outlined-adornment-offsets"
+            value={offsets}
+            onChange={handleChange}
             labelWidth={60}
           />
         </FormControl>
