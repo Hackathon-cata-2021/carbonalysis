@@ -31,11 +31,17 @@ export const carbonFootprintQuestions = [
   },
   {
     label: 'Water consumption',
-    name: 'water',
+    name: 'water1',
     options: [
       'Dishwasher/Washing machine 1-3 times per week',
       'Dishwasher/Washing machine 4-9 times per week',
       'Dishwasher/Washing machine >9 times per week',
+    ]
+  },
+  {
+    label: 'Do you own a dishwasher/washing machine',
+    name: 'water2',
+    options: [
       'No dishwasher/washing machine',
       'Own a dishwasher/washing machine'
     ]
