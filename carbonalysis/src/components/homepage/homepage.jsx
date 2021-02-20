@@ -3,7 +3,7 @@ import styles from './Homepage.module.css'
 
 const homepage = () => {
     return (
-        <div>
+        <div className = {styles.body}>
             <p>Hello there</p>
         </div>
     )
