@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     link: {
         color: "black",
         padding: "5px",
-        fontWeight: "bold"
+        fontWeight: "400",
+        marginLeft: "25px"
     }
 }));
 
