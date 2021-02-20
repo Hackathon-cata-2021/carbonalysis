@@ -9,6 +9,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Radio from '../radio-button/Radio';
 import { carbonFootprintQuestions } from '../../utils/questions';
 import styles from './FormPages.module.css';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +41,8 @@ export default function FormPages() {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = carbonFootprintQuestions.length;
 
+  const history = useHistory();
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -47,6 +50,10 @@ export default function FormPages() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+
+  const handleSubmit = () => {
+    history.push('/carbon-emissions');
+  }
 
   return (
     <div className={classes.root}>
@@ -67,7 +74,7 @@ export default function FormPages() {
         nextButton={
           activeStep === (maxSteps - 1)
           ?
-          <Button type="submit">Submit</Button> 
+          <Button type="submit" onClick={handleSubmit}>Submit</Button> 
           :
           <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
             Next
