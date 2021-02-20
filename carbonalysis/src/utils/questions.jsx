@@ -109,3 +109,56 @@ export const recycling = {
   foodWaste: 'Food waste (composting)',
   none: 'No recycling'
 };
+
+export const co2Emissions = [
+  {
+    label: 'Owns a vehicle',
+    name: 'vehicle',
+    options: [
+      'Hybrid or electric vehicle',
+      'Compact/economy-sized car',
+      'Medium/sedan car',
+      'Large/SUV/Truck'
+    ]
+  },
+  {
+    label: 'Total fuel usage',
+    name: 'fuel',
+  },
+  {
+    label: 'Monthly utility bills',
+    name: 'utility',
+  },
+  {
+    label: 'Carbon offsets',
+    name: 'offsets',
+  }
+];
+
+export const inputQuestions = [
+  {
+    label: 'Total fuel usage',
+    name: 'fuel',
+    options: [
+      'Total miles driven',
+      'Miles per gallon'
+    ]
+  },
+  {
+    label: 'Monthly utility bills',
+    name: 'utility',
+    options: [
+      'Kilowatt hours',
+      'Natural gas usage (therms)',
+      'Propane gallons',
+      'Fuel gallons'
+    ]
+  },
+  {
+    label: 'Carbon offsets',
+    name: 'offsets',
+    options: [
+      'How many trees'
+    ]
+  },
+]

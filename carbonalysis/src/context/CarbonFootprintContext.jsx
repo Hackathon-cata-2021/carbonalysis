@@ -23,6 +23,12 @@ export const MainProvider = ({ children }) => {
     foodWaste: false
   });
 
+  const [car, setCar] = useState('');
+  const [fuel, setFuel] = useState('');
+  const [utility, setUtility] = useState('');
+  const [offsets, setOffsets] = useState('');
+  const [totalEmissions, setTotalEmissions] = useState('');
+
   return (
     <carbonFootprintContext.Provider
       value={{
@@ -36,7 +42,12 @@ export const MainProvider = ({ children }) => {
         publicTransit, setPublicTransit,
         flights, setFlights,
         totalFootprint, setTotalFootprint,
-        recycle, setRecycle
+        recycle, setRecycle,
+        car, setCar,
+        fuel, setFuel,
+        utility, setUtility,
+        offsets, setOffsets,
+        totalEmissions, setTotalEmissions
       }}
     >
       {children}

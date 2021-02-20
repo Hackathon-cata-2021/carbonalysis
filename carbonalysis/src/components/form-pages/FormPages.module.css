@@ -9,3 +9,12 @@
   height: 100%;
   width: 100%;
 } */
+
+.title {
+  font-family: "Brush Script MT";
+  text-decoration: underline;
+  font-size: 72px;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

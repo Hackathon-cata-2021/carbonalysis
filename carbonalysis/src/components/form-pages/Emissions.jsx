@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import Radio from '../radio-button/Radio';
-import { carbonFootprintQuestions } from '../../utils/questions';
+import RadioEmissions from '../radio-button/RadioEmissions';
+import { co2Emissions } from '../../utils/questions';
 import styles from './FormPages.module.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,11 +34,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function FormPages() {
+export default function Emissions() {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = carbonFootprintQuestions.length;
+  const maxSteps = co2Emissions.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -52,11 +52,11 @@ export default function FormPages() {
     <div className={classes.root}>
       <h1 className={styles.title}>Carbon Footprint Analyzer</h1>
       <Paper square elevation={0} className={classes.header}>
-        <Typography>{carbonFootprintQuestions[activeStep].label}</Typography>
+        <Typography>{co2Emissions[activeStep].label}</Typography>
       </Paper>
       <div className={styles.radioContainer}>
-        <Radio
-          carbonFootprintQuestions={carbonFootprintQuestions[activeStep]}
+        <RadioEmissions
+          co2Emissions={co2Emissions[activeStep]}
         />
       </div>
       <MobileStepper
