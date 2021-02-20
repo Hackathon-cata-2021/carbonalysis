@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
@@ -11,6 +11,7 @@ import { carbonFootprintQuestions } from '../../utils/questions';
 import styles from './FormPages.module.css';
 import { useHistory } from 'react-router-dom';
 import HttpHelper from '../../utils/HttpHelper';
+import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,6 +45,21 @@ export default function FormPages() {
 
   const history = useHistory();
 
+  const {
+    user_id,
+    householdSize,
+    homeSize,
+    food,
+    water1,
+    water2,
+    purchases,
+    waste,
+    transportation,
+    publicTransit,
+    flights,
+    recycle,
+    totalFootprint, setTotalFootprint
+  } = useContext(carbonFootprintContext);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -55,7 +71,18 @@ export default function FormPages() {
 
   const handleSubmit = () => {
     const payload = {
-
+      user_id,
+      householdSize,
+      homeSize,
+      food,
+      water1,
+      water2,
+      purchases,
+      waste,
+      transportation,
+      publicTransit,
+      flights,
+      recycling: recycle
     };
   
     HttpHelper('/footprint', 'POST', payload)

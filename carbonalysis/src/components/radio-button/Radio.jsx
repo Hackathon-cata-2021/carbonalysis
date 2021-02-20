@@ -31,7 +31,8 @@ export default function RadioButtonsGroup({ carbonFootprintQuestions }) {
     householdSize, setHouseholdSize,
     homeSize, setHomeSize,
     food, setFood,
-    water, setWater,
+    water1, setWater1,
+    water2, setWater2,
     purchases, setPurchases,
     waste, setWaste,
     transportation, setTransportation,
@@ -51,8 +52,11 @@ export default function RadioButtonsGroup({ carbonFootprintQuestions }) {
       case 'food':
         setFood(event.target.value);
         break;
-      case 'water':
-        setWater(event.target.value);
+      case 'water1':
+        setWater1(event.target.value);
+        break;
+      case 'water2':
+        setWater2(event.target.value);
         break;
       case 'purchases':
         setPurchases(event.target.value);
@@ -86,7 +90,8 @@ export default function RadioButtonsGroup({ carbonFootprintQuestions }) {
                 option === householdSize ? true :
                 option === homeSize ? true :
                 option === food ? true :
-                option === water ? true :
+                option === water1 ? true :
+                option === water2 ? true :
                 option === purchases ? true :
                 option === waste ? true :
                 option === transportation ? true :
