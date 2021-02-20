@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/login")
 public class AuthController {
+  @Autowired
   UsersService usersService;
 
   @Autowired

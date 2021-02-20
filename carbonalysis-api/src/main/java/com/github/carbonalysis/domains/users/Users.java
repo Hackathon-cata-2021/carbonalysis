@@ -2,6 +2,7 @@ package com.github.carbonalysis.domains.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.carbonalysis.domains.address.Address;
+import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,8 +31,7 @@ public class Users {
   @NotNull
   private String last_name;
 
-  @NotNull
-  private String created_at;
+  private Timestamp created_at;
 
   @JsonIgnore
   private String salt;
@@ -44,13 +44,11 @@ public class Users {
   public Users() {}
 
   public Users(@NotNull String email, @NotNull String password,
-      @NotNull String first_name, @NotNull String last_name,
-      @NotNull String created_at, Address address) {
+      @NotNull String first_name, @NotNull String last_name, Address address) {
     this.email = email;
     this.password = password;
     this.first_name = first_name;
     this.last_name = last_name;
-    this.created_at = created_at;
     this.address = address;
   }
 
@@ -86,11 +84,11 @@ public class Users {
     this.last_name = last_name;
   }
 
-  public String getCreated_at() {
+  public Timestamp getCreated_at() {
     return created_at;
   }
 
-  public void setCreated_at(String created_at) {
+  public void setCreated_at(Timestamp created_at) {
     this.created_at = created_at;
   }
 
