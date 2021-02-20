@@ -2,9 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dependencies
+
+* npm install @material-ui/core
+* npm install @material-ui/icons
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Run this command in the root of your folder to install dependencies
 
 ### `npm start`
 
