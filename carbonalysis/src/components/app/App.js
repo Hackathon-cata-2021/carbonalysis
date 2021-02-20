@@ -19,7 +19,6 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/carbon-footprint" component={FormPages} />
             <Route exact path="/carbon-emissions" component={Emissions} />
-            <Route exact path="/dashboard" component={Dashboard} />
           </Switch>
         </Router>
       </div>
