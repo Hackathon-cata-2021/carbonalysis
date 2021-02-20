@@ -1,14 +1,14 @@
 const carbonFootprintQuestions = [
   {
     label: 'Number of members of your household',
-    name: 'members',
+    name: 'householdSize',
     options: [
       '1','2','3','4','5','6','>6'
     ]
   },
   {
     label: 'Size of home',
-    name: 'household',
+    name: 'homeSize',
     options: [
       'Large house',
       'Medium house',
@@ -31,6 +31,7 @@ const carbonFootprintQuestions = [
   },
   {
     label: 'Water consumption',
+    name: 'water',
     options: [
       'Dishwasher/Washing machine >9 times per week',
       'Dishwasher/Washing machine 4-9 times per week',
@@ -41,6 +42,7 @@ const carbonFootprintQuestions = [
   },
   {
     label: 'Household purchases per year (furniture, electronics, other household gadgets',
+    name: 'purchases',
     options: [
       '>7 new items',
       'Between 5 and 7 new items',
@@ -51,6 +53,7 @@ const carbonFootprintQuestions = [
   },
   {
     label: 'Waste',
+    name: 'waste',
     options: [
       '4 garbage cans per week',
       '3 garbage cans per week',
@@ -61,6 +64,7 @@ const carbonFootprintQuestions = [
   },
   {
     label: 'Transportation',
+    name: 'transportation',
     options: [
       'More than 15,000 miles per year',
       '10,000 - 15,000 miles per year',
@@ -71,6 +75,7 @@ const carbonFootprintQuestions = [
   },
   {
     label: 'Public transportation',
+    name: 'publicTransit',
     options: [
       'More than 20,000 miles per year',
       '15,000 - 20,000 miles per year',
@@ -82,6 +87,7 @@ const carbonFootprintQuestions = [
   },
   {
     label: 'Flights',
+    name: 'flights',
     options: [
       'Short distances (within your state) only in one year',
       'Further distances (nearby states)',
