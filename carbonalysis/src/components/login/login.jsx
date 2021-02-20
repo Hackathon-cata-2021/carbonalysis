@@ -1,8 +1,8 @@
-import React, {useContext} from 'react'
-import { CarbonFootprintContext } from '../../context/CarbonFootprintContext'
+import React, { useState, useContext } from 'react'
+import { carbonFootprintContext } from '../../context/CarbonFootprintContext'
 
 const Login = () => {
-    const {user, setUser} = useContext(CarbonFootprintContext);
+    const {user, setUser} = useContext(carbonFootprintContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const onChangeHandler = (e, type) => {
