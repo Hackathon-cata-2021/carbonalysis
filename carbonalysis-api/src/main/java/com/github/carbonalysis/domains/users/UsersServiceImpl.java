@@ -1,5 +1,6 @@
 package com.github.carbonalysis.domains.users;
 
+import com.github.carbonalysis.domains.address.AddressService;
 import com.github.carbonalysis.encryption.Hash;
 import com.github.carbonalysis.encryption.Salt;
 import com.github.carbonalysis.exceptions.FieldAlreadyPresent;
@@ -19,6 +20,9 @@ import org.springframework.stereotype.Service;
 public class UsersServiceImpl implements UsersService{
 
   private final Logger logger = LoggerFactory.getLogger(UsersServiceImpl.class);
+
+  @Autowired
+  private AddressService addressService;
 
   @Autowired
   private UsersRepository usersRepository;
@@ -69,6 +73,7 @@ public class UsersServiceImpl implements UsersService{
     Users postedUser = null;
 
     try {
+      addressService.createAddress(user.getAddress());
       postedUser = usersRepository.save(user);
     } catch (DataAccessException e) {
       logger.error(e.getMessage());
