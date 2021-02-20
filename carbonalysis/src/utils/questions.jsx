@@ -1,4 +1,4 @@
-const carbonFootprintQuestions = [
+export const carbonFootprintQuestions = [
   {
     label: 'Number of members of your household',
     name: 'householdSize',
@@ -96,17 +96,16 @@ const carbonFootprintQuestions = [
   },
   {
     label: 'Recycle',
-    name: 'recycle',
-    options: [
-      'Glass',
-      'Plastic',
-      'Paper',
-      'Aluminum',
-      'Steel',
-      'Food waste (composting)',
-      'No recycling'
-    ]
-  },
+    name: 'recycle'
+  }
 ];
 
-export default carbonFootprintQuestions;
+export const recycling = {
+  glass: 'Glass',
+  plastic: 'Plastic',
+  paper: 'Paper',
+  aluminum: 'Aluminum',
+  steel: 'Steel',
+  foodWaste: 'Food waste (composting)',
+  none: 'No recycling'
+};

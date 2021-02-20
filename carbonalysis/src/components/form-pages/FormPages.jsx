@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react';
-import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
+import React, { useState } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
@@ -8,11 +7,16 @@ import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Radio from '../radio-button/Radio';
-import carbonFootprintQuestions from '../../utils/questions';
+import { carbonFootprintQuestions } from '../../utils/questions';
+import styles from './FormPages.module.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    maxWidth: '50rem',
+    minWidth: '50rem',
+    maxHeight: '50rem',
+    minHeight: '50rem'
   },
   header: {
     display: 'flex',
@@ -20,6 +24,13 @@ const useStyles = makeStyles((theme) => ({
     height: 50,
     paddingLeft: theme.spacing(4),
     backgroundColor: theme.palette.background.default,
+  },
+  img: {
+    height: 400,
+    // maxWidth: 400,
+    overflow: 'hidden',
+    display: 'block',
+    width: '100%'
   }
 }));
 
@@ -28,19 +39,6 @@ export default function FormPages() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = carbonFootprintQuestions.length;
-  const {
-    householdSize, setHouseholdSize,
-    homeSize, setHomeSize,
-    food, setFood,
-    water, setWater,
-    purchases, setPurchases,
-    waste, setWaste,
-    recycle, setRecycle,
-    transportation, setTransportation,
-    publicTransit, setPublicTransit,
-    flights, setFlights,
-    totalFootprint, setTotalFootprint
-  } = useContext(carbonFootprintContext);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -55,15 +53,21 @@ export default function FormPages() {
       <Paper square elevation={0} className={classes.header}>
         <Typography>{carbonFootprintQuestions[activeStep].label}</Typography>
       </Paper>
-      <Radio
-        carbonFootprintQuestions={carbonFootprintQuestions[activeStep]}
-      />
+      <div className={styles.radioContainer}>
+        <Radio
+          carbonFootprintQuestions={carbonFootprintQuestions[activeStep]}
+        />
+      </div>
       <MobileStepper
         steps={maxSteps}
         position="static"
         variant="text"
         activeStep={activeStep}
         nextButton={
+          activeStep === (maxSteps - 1)
+          ?
+          <Button type="submit">Submit</Button> 
+          :
           <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
             Next
             {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
@@ -78,4 +82,4 @@ export default function FormPages() {
       />
     </div>
   );
-}
+};

@@ -9,11 +9,19 @@ export const MainProvider = ({ children }) => {
   const [water, setWater] = useState('');
   const [purchases, setPurchases] = useState('');
   const [waste, setWaste] = useState('');
-  const [recycle, setRecycle] = useState('');
   const [transportation, setTransportation] = useState('');
   const [publicTransit, setPublicTransit] = useState('');
   const [flights, setFlights] = useState('');
   const [totalFootprint, setTotalFootprint] = useState('');
+  const [recycle, setRecycle] = useState({
+    none: false,
+    glass: false,
+    plastic: false,
+    paper: false,
+    aluminum: false,
+    steel: false,
+    foodWaste: false
+  });
 
   return (
     <carbonFootprintContext.Provider
@@ -24,14 +32,14 @@ export const MainProvider = ({ children }) => {
         water, setWater,
         purchases, setPurchases,
         waste, setWaste,
-        recycle, setRecycle,
         transportation, setTransportation,
         publicTransit, setPublicTransit,
         flights, setFlights,
-        totalFootprint, setTotalFootprint
+        totalFootprint, setTotalFootprint,
+        recycle, setRecycle
       }}
     >
       {children}
     </carbonFootprintContext.Provider>
   )
-}
+};
