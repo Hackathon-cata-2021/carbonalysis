@@ -38,8 +38,10 @@ public class AuthController {
 
     final Users user = usersService.getUserByEmail(authenticationRequest.getUsername());
 
+    final String user2 = user.toString();
+
     final String jwt = jwtUtil.generateToken(user);
 
-    return ResponseEntity.ok(new AuthenticationResponse(jwt, user));
+    return ResponseEntity.ok(new AuthenticationResponse(jwt, user2));
   }
 }

@@ -5,9 +5,9 @@ import com.github.carbonalysis.domains.users.Users;
 public class AuthenticationResponse {
   private final String jwt;
 
-  private final Users user;
+  private final String user;
 
-  public AuthenticationResponse(String jwt, Users user) {
+  public AuthenticationResponse(String jwt, String user) {
     this.jwt = jwt;
     this.user = user;
   }
@@ -16,7 +16,7 @@ public class AuthenticationResponse {
     return jwt;
   }
 
-  public Users getUser() {
+  public String getUser() {
     return user;
   }
 }
