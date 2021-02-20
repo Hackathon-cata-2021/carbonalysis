@@ -8,29 +8,35 @@
   <artifactId>carbonalysis-api</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <parent>
+  <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+  <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.6.Release</version>
-    <relativePath/> <!-- lookup parent from repository -->
-  </parent>
+    <version>2.4.2</version>
+    <type>pom</type>
+  </dependency>
+
 
   <properties>
     <java.version>15</java.version>
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
-      <version>2.2.6.RELEASE</version>
+      <version>2.4.3</version>
     </dependency>
 
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-      <version>2.2.6.RELEASE</version>
+      <version>2.4.3</version>
     </dependency>
+
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
