@@ -1,0 +1,19 @@
+logging:
+  level:
+    org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: ERROR
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://34.86.71.225:5432/Carbonalysis
+    username: carbonalysis
+    password: RootDevOne15
+    driverClassName: org.postgresql.Driver
+  security:
+    user:
+      password: password
