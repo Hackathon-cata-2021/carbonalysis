@@ -7,10 +7,12 @@ import Homepage from '../homepage/homepage';
 import Login from '../login/login';
 import Register from '../register/register'
 import Dashboard from '../dashboard/dashboard'
+import Navbar from '../navbar/Navbar'
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <div className="App-container">
         <Router>
           <Switch>
