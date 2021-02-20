@@ -46,7 +46,6 @@ export default function FormPages() {
   const history = useHistory();
 
   const {
-    user_id,
     householdSize,
     homeSize,
     food,
