@@ -4,10 +4,12 @@ const login = () => {
     return(
         <div>
             <form>
-                <label>Username / Email</label>
-                <input type="text"></input>
+                <label>Email</label>
+                <input type="email"></input>
+                <br/>
                 <label>Password</label>
-                <input type="text"></input>
+                <input type="password"></input>
+                <br/>
                 <input type="submit"></input>
             </form>
         </div>
