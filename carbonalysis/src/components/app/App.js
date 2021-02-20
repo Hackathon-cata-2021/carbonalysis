@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import FormPages from '../form-pages/FormPages';
 import Emissions from '../form-pages/Emissions';
-import Homepage from '../homepage/homepage';
-import Login from '../login/login';
-import Register from '../register/register'
-import Dashboard from '../dashboard/dashboard'
+import Homepage from '../homepage/Homepage';
+import Login from '../login/Login';
+import Register from '../register/Register'
+import Dashboard from '../dashboard/Dashboard'
 import Navbar from '../navbar/Navbar'
 
 function App() {

@@ -57,7 +57,7 @@ export default function FormPages() {
     transportation,
     publicTransit,
     flights,
-    recycle,
+    recycling,
     totalFootprint, setTotalFootprint
   } = useContext(carbonFootprintContext);
 
@@ -71,7 +71,7 @@ export default function FormPages() {
 
   const handleSubmit = () => {
     const payload = {
-      user_id,
+      user_id: 5,
       householdSize,
       homeSize,
       food,
@@ -82,7 +82,7 @@ export default function FormPages() {
       transportation,
       publicTransit,
       flights,
-      recycling: recycle
+      recycling
     };
   
     HttpHelper('/footprint', 'POST', payload)

@@ -25,6 +25,8 @@ export const MainProvider = ({ children }) => {
     foodWaste: false
   });
 
+  const [recycling, setRecycling] = useState(0);
+
   const [car, setCar] = useState('');
   const [fuel, setFuel] = useState({
     totalMiles: '',
@@ -55,6 +57,7 @@ export const MainProvider = ({ children }) => {
         flights, setFlights,
         totalFootprint, setTotalFootprint,
         recycle, setRecycle,
+        recycling, setRecycling,
         car, setCar,
         fuel, setFuel,
         utility, setUtility,
