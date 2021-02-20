@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/footprint")
+@CrossOrigin(origins = "http://localhost:3000/%22")
 public class FootprintDataController {
   private final Logger logger = LoggerFactory.getLogger(FootprintDataController.class);
 
@@ -38,7 +40,7 @@ public class FootprintDataController {
 
   @PostMapping
   public ResponseEntity<FootprintData> createFootprint(
-      @Valid @RequestBody FootprintData footprintData) {
+      @Valid @RequestBody FootprintDataStrings footprintData) {
     logger.info(" Post request received");
     return new ResponseEntity<>(footprintDataService.createFootprintData(footprintData),
         HttpStatus.CREATED);

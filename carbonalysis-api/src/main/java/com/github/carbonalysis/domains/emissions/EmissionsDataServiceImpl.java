@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-//import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -50,7 +49,9 @@ public class EmissionsDataServiceImpl implements EmissionsDataService{
   }
 
   @Override
-  public EmissionsData createEmissionsData(EmissionsData emissionsData) {
+  public EmissionsData createEmissionsData(EmissionsDataStrings emissionsDataStrings) {
+    EmissionsData emissionsData = analyzeStrings(emissionsDataStrings);
+
     EmissionsData postedEmissions = null;
 
     try {
@@ -87,5 +88,59 @@ public class EmissionsDataServiceImpl implements EmissionsDataService{
     } catch (DataAccessException e) {
       logger.error(e.getMessage());
     }
+  }
+
+  public EmissionsData analyzeStrings(EmissionsDataStrings emissionsDataStrings) {
+    EmissionsData emissionsData = new EmissionsData();
+
+    emissionsData.setUser_id(emissionsDataStrings.getUser_id());
+
+    Double total = 0.0;
+
+    if(emissionsDataStrings.getCar().equals("Hybrid or electric vehicle")) {
+      total += 2;
+      emissionsData.setCar(2.0);
+    } else if(emissionsDataStrings.getCar().equals("Compact/economy-sized car")){
+      total += 5;
+      emissionsData.setCar(5.0);
+    } else if(emissionsDataStrings.getCar().equals("Medium/sedan car")) {
+      total += 9;
+      emissionsData.setCar(9.0);
+    } else {
+      total += 12;
+      emissionsData.setCar(12.0);
+    }
+
+    Double fuelUsage = emissionsDataStrings.getFuel().getTotalMiles() / emissionsDataStrings.getFuel().getMpg();
+
+    Double EmissionsPounds = fuelUsage * 22;
+
+    total += EmissionsPounds / 2000;
+
+    emissionsData.setFuel(EmissionsPounds / 2000);
+
+    if(emissionsDataStrings.getUtility().getFuel() != null) {
+      Double pounds = emissionsDataStrings.getUtility().getFuel() * 22;
+      total += pounds / 2000;
+      emissionsData.setUtility(pounds / 2000);
+    } else if(emissionsDataStrings.getUtility().getKilowatt() != null) {
+      Double pounds = emissionsDataStrings.getUtility().getKilowatt() * 1.85;
+      total += pounds / 2000;
+      emissionsData.setUtility(pounds / 2000);
+    } else if(emissionsDataStrings.getUtility().getNaturalGas() != null) {
+      Double pounds = emissionsDataStrings.getUtility().getNaturalGas() * 13.466;
+      total += pounds / 2000;
+      emissionsData.setUtility(pounds / 2000);
+    } else {
+      Double pounds = emissionsDataStrings.getUtility().getPropane() * 13;
+      total += pounds / 2000;
+      emissionsData.setUtility(pounds / 2000);
+    }
+
+    total -= emissionsDataStrings.getOffsets();
+    emissionsData.setOffsets(emissionsDataStrings.getOffsets());
+    emissionsData.setTotal_emissions(total);
+
+    return emissionsData;
   }
 }

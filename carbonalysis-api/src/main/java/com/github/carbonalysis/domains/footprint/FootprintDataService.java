@@ -7,7 +7,7 @@ public interface FootprintDataService {
 
   FootprintData getById(Long id);
 
-  FootprintData createFootprintData(FootprintData footprintData);
+  FootprintData createFootprintData(FootprintDataStrings footprintDataStrings);
 
   FootprintData updateFootprintData(Long id, FootprintData footprintData);
 
