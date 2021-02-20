@@ -61,39 +61,27 @@ export default function RadioButtonsGroup({ carbonFootprintQuestions }) {
     }
   };
 
-  const value = (event) => {
-    switch (event.target.name) {
-      case 'householdSize':
-        return householdSize;
-      case 'homeSize':
-        return homeSize;
-      case 'food':
-        return food;
-      case 'water':
-        return water;
-      case 'purchases':
-        return purchases;
-      case 'waste':
-        return waste;
-      case 'recycle':
-        return recycle;
-      case 'transportation':
-        return transportation;
-      case 'publicTransit':
-        return publicTransit;
-      case 'flights':
-        return flights;
-      default:
-        break;
-    }
-  }
-
   return (
     // <carbonFootprintContext.Consumer>
       <FormControl component="fieldset">
         <RadioGroup name={name} onChange={handleChange}>
           {carbonFootprintQuestions.options.map(option => (
-            <FormControlLabel key={option} value={option} control={<Radio />} label={option} />
+            <FormControlLabel
+              checked={
+                option === householdSize ? true : 
+                option === homeSize ? true :
+                option === food ? true :
+                option === water ? true :
+                option === purchases ? true :
+                option === waste ? true :
+                option === recycle ? true :
+                option === transportation ? true :
+                option === publicTransit ? true :
+                option === flights ? true :
+                false
+              }
+              key={option} value={option} control={<Radio />} label={option}
+            />
           ))}
         </RadioGroup>
       </FormControl>
