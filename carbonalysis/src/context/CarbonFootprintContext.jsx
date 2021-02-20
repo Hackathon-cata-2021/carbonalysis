@@ -22,7 +22,7 @@ export const MainProvider = ({ children }) => {
     steel: false,
     foodWaste: false
   });
-
+  const [user, setUser] = useState({});
   const [car, setCar] = useState('');
   const [fuel, setFuel] = useState({
     totalMiles: '',
@@ -55,7 +55,8 @@ export const MainProvider = ({ children }) => {
         fuel, setFuel,
         utility, setUtility,
         offsets, setOffsets,
-        totalEmissions, setTotalEmissions
+        totalEmissions, setTotalEmissions,
+        user, setUser
       }}
     >
       {children}

@@ -1,6 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { CarbonFootprintContext } from '../../context/CarbonFootprintContext'
 
-const login = () => {
+const Login = () => {
+    const {user, setUser} = useContext(CarbonFootprintContext);
+    const submitHandler = () => {
+        
+    }
     return(
         <div>
             <form>
@@ -10,10 +15,10 @@ const login = () => {
                 <label>Password</label>
                 <input type="password"></input>
                 <br/>
-                <input type="submit"></input>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )
 }
 
-export default login
+export default Login
