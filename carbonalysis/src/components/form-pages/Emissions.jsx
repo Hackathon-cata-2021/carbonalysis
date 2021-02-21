@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
@@ -9,6 +9,9 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import RadioEmissions from '../radio-button/RadioEmissions';
 import { co2Emissions } from '../../utils/questions';
 import styles from './FormPages.module.css';
+import { useHistory } from 'react-router-dom';
+import HttpHelper from '../../utils/HttpHelper';
+import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,12 +43,40 @@ export default function Emissions() {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = co2Emissions.length;
 
+  const history = useHistory();
+
+  const {
+    user_id, car, fuel, utility, offsets
+  } = useContext(carbonFootprintContext);
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSubmit = () => {
+    const payload = {
+      user_id,
+      car,
+      fuel,
+      utility,
+      offsets
+    };
+  
+    HttpHelper('/emissions', 'POST', payload)
+      .then((response) => {
+        if (response.ok) {
+          history.push('/dashboard');
+        } else {
+          throw new Error('oops something went wrong');
+        }
+      })
+      .catch((error) => {
+        throw new Error(error);
+      })
   };
 
   return (
@@ -67,7 +98,7 @@ export default function Emissions() {
         nextButton={
           activeStep === (maxSteps - 1)
           ?
-          <Button type="submit">Submit</Button> 
+          <Button type="submit" onClick={handleSubmit}>Submit</Button> 
           :
           <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
             Next
