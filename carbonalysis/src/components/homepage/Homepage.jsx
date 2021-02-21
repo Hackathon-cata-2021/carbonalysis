@@ -13,11 +13,11 @@ const Homepage = () => {
     }
 
     return (
-        <div className = {styles.body} style = {{backgroundImage: `url(${Background})`}}>
-            <div className = {styles.container} >
-                <h1 className = {styles.tagline} >Track Your Carbon Footprint</h1>
-                <p className = {styles.description} >Carbonalysis tracks your carbon footprint by answering a few simple questions!</p>
-                <ul className = {styles.unorderedList}>
+        <div className = {styles.homeBody} style = {{backgroundImage: `url(${Background})`}}>
+            <div className = {styles.homeContainer} >
+                <h1 className = {styles.homeHeading} >Track Your Carbon Footprint</h1>
+                <p className = {styles.homeDescription} >Carbonalysis tracks your carbon footprint by answering a few simple questions!</p>
+                <ul className = {styles.homeBenefits}>
                     <li>Track your footprint overtime!</li>
                     <li>Get listed on the global leaderboards!</li>
                     <li>Save your footprint progress!</li>
