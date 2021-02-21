@@ -191,10 +191,10 @@ export default function Dashboard() {
             <div className={styles.dashColumnTwo}>
                 <h1 className={styles.dashColumnHeading}>Your Stats</h1>
                 <div style={{textAlign: "left"}}class="MuiTypography-root Title-root-8 MuiTypography-h5">
-                    Your Average Footprint Emissions: <span style={{color:"#e4670c"}}>{footprintRes}</span> <br/>
+                    Avg. Footprint Emissions: <span style={{color:"#e4670c"}}>{footprintRes} points</span> <br/>
                 </div>
                 <div style={{textAlign: "left"}}class="MuiTypography-root Title-root-8 MuiTypography-h5">
-                Your Average CO2 Emissions: <span style={{color:"#e4670c"}}>{emissionsRes}</span>
+                    Avg. CO2 Emissions: <span style={{color:"#e4670c"}}>{emissionsRes} tons</span>
                 </div>
             </div>
         </div>
