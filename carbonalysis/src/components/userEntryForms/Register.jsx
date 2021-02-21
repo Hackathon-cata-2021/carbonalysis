@@ -86,7 +86,7 @@ const Register = () => {
     return(
         <div className = {styles.formBody} style={{backgroundImage: `url(${BackgroundImage})`}}>
             <form className = {styles.formCard}>
-                <h1>Sign Up <u>FREE</u> Today!</h1>
+                <h1 className={styles.formHeading} >Sign Up <u>FREE</u> Today!</h1>
                 <div className={styles.column}>
                     <input className={styles.formInput} type="text" placeholder="First name" value={user.first_name} onChange={e => onChangeUser(e, 'fn')}></input> <br/>
                     <input className={styles.formInput} type="text" placeholder="Last name" value={user.last_name} onChange={e => onChangeUser(e, 'ln')}></input> <br/>

@@ -7,7 +7,8 @@ import Homepage from '../homepage/Homepage';
 import Login from '../userEntryForms/Login';
 import Register from '../userEntryForms/Register';
 import Dashboard from '../dashboard/Dashboard';
-import Navbar from '../navbar/Navbar'
+import Navbar from '../navbar/Navbar';
+import Logout from '../logout/Logout';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/carbon-footprint" component={FormPages} />
             <Route exact path="/carbon-emissions" component={Emissions} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/logout" component={Logout} />
           </Switch>
           </div>
         </Router>

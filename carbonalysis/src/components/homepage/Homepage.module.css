@@ -1,4 +1,4 @@
-.body {
+.homeBody {
     background-color:#f4f4f4;
     width: 100%;
     min-height: 90vh;
@@ -10,12 +10,12 @@
     background-size: cover;
 }
 
-.container {
+.homeContainer {
     max-width: 600px;
     text-align: left;
 }
 
-.tagline {
+.homeHeading {
     font-size: 70px;
     font-weight: 700;
     display: block;
@@ -24,13 +24,13 @@
     text-align: left;
 }
 
-.description {
+.homeDescription {
     font-size: 20px;
     font-weight: 400;
     line-height: 1.8em;
 }
 
-.unorderedList {
+.homeBenefits {
     font-size: 20px;
     font-weight: 400;
     line-height: 1.8em;
