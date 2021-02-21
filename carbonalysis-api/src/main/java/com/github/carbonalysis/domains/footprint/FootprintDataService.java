@@ -7,9 +7,11 @@ public interface FootprintDataService {
 
   FootprintData getById(Long id);
 
+  List<FootprintData> getByUserId(Long id);
+
   FootprintData createFootprintData(FootprintDataStrings footprintDataStrings);
 
   FootprintData updateFootprintData(Long id, FootprintData footprintData);
 
-  void deleteFoodprintData(Long id);
+  void deleteFootprintData(Long id);
 }

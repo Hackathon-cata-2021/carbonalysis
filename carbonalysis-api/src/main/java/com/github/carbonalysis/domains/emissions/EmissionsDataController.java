@@ -1,5 +1,6 @@
 package com.github.carbonalysis.domains.emissions;
 
+import com.github.carbonalysis.domains.footprint.FootprintData;
 import java.util.List;
 import javax.validation.Valid;
 import org.slf4j.Logger;
@@ -36,6 +37,12 @@ public class EmissionsDataController {
   public ResponseEntity<EmissionsData> getEmissionsById(@PathVariable Long id) {
     logger.info(" Get all request received");
     return new ResponseEntity<>(emissionsDataService.getById(id), HttpStatus.OK);
+  }
+
+  @GetMapping("/data/{id}")
+  public ResponseEntity<List<EmissionsData>> getEmissionsByUserId(@PathVariable Long id) {
+    logger.info("Get emissions by user id request received");
+    return new ResponseEntity<>(emissionsDataService.getByUserId(id), HttpStatus.OK);
   }
 
   @PostMapping

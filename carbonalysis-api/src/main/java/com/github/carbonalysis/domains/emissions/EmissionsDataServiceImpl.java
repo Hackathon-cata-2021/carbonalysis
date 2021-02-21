@@ -1,5 +1,6 @@
 package com.github.carbonalysis.domains.emissions;
 
+import com.github.carbonalysis.domains.footprint.FootprintData;
 import com.github.carbonalysis.exceptions.ResourceNotFound;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,12 @@ public class EmissionsDataServiceImpl implements EmissionsDataService{
     } else {
       return emissions.get();
     }
+  }
+
+  @Override
+  public List<EmissionsData> getByUserId(Long id) {
+    List<EmissionsData> emissions = emissionsRepository.findByUser_id(id);
+    return emissions;
   }
 
   @Override

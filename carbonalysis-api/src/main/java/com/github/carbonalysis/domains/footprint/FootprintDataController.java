@@ -38,6 +38,12 @@ public class FootprintDataController {
     return new ResponseEntity<>(footprintDataService.getById(id), HttpStatus.OK);
   }
 
+  @GetMapping("/data/{id}")
+  public ResponseEntity<List<FootprintData>> getFootprintsByUserId(@PathVariable Long id) {
+    logger.info("Get footprints by user id request received");
+    return new ResponseEntity<>(footprintDataService.getByUserId(id), HttpStatus.OK);
+  }
+
   @PostMapping
   public ResponseEntity<FootprintData> createFootprint(
       @Valid @RequestBody FootprintDataStrings footprintData) {
@@ -57,7 +63,7 @@ public class FootprintDataController {
   @DeleteMapping("/{id}")
   public ResponseEntity<FootprintData> deleteFootprint(@PathVariable Long id) {
     logger.info(" Delete request received");
-    footprintDataService.deleteFoodprintData(id);
+    footprintDataService.deleteFootprintData(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 }

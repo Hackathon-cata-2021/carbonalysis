@@ -9,6 +9,8 @@ public interface EmissionsDataService {
 
   EmissionsData createEmissionsData(EmissionsDataStrings emissionsDataStrings);
 
+  List<EmissionsData> getByUserId(Long id);
+
   EmissionsData updateEmissionsData(Long id, EmissionsData emissionsData);
 
   void deleteEmissionsData(Long id);

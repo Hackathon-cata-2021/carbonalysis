@@ -50,6 +50,12 @@ public class FootprintDataServiceImpl implements FootprintDataService{
   }
 
   @Override
+  public List<FootprintData> getByUserId(Long id) {
+    List<FootprintData> footprint = footprintRepository.findByUser_id(id);
+    return footprint;
+  }
+
+  @Override
   public FootprintData createFootprintData(FootprintDataStrings footprintDataStrings) {
     FootprintData footprintData = analyzeStrings(footprintDataStrings);
 
@@ -83,7 +89,7 @@ public class FootprintDataServiceImpl implements FootprintDataService{
   }
 
   @Override
-  public void deleteFoodprintData(Long id) {
+  public void deleteFootprintData(Long id) {
     try {
       footprintRepository.deleteById(id);
     } catch (DataAccessException e) {
