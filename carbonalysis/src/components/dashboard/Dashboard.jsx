@@ -163,6 +163,7 @@ export default function Dashboard() {
                             <BarSeries
                                 valueField="footprint"
                                 argumentField="averages"
+                                color="#e4670c"
                                 
                             />
                             <Title text="Average Carbon Footprint (in points)" />
