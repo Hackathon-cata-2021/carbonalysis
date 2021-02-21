@@ -79,7 +79,7 @@ export default function FormPages() {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`
       },
       data: {
-        user_id: user.id,
+        userId: user.id,
         householdSize,
         homeSize,
         food,

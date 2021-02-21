@@ -75,7 +75,7 @@ export default function Emissions() {
       }
     })
     .then(() => {
-        history.push('/carbon-emissions');
+        history.push('/dashboard');
     })
     .catch(() => {
         throw new Error();
