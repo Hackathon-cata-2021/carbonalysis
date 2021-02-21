@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/footprint")
-@CrossOrigin(origins = "http://localhost:3000/%22")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FootprintDataController {
   private final Logger logger = LoggerFactory.getLogger(FootprintDataController.class);
 

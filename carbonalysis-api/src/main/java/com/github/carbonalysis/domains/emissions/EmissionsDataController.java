@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/emissions")
-@CrossOrigin(origins = "http://localhost:3000/%22")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmissionsDataController {
   private final Logger logger = LoggerFactory.getLogger(EmissionsDataController.class);
 

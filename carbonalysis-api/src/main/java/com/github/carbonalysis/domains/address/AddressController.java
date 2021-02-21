@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/address")
-@CrossOrigin(origins = "http://localhost:3000/%22")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AddressController {
   private final Logger logger = LoggerFactory.getLogger(AddressController.class);
 
