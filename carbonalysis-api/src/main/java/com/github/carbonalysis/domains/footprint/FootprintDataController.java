@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/footprint")
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FootprintDataController {
   private final Logger logger = LoggerFactory.getLogger(FootprintDataController.class);
 
@@ -38,9 +38,15 @@ public class FootprintDataController {
     return new ResponseEntity<>(footprintDataService.getById(id), HttpStatus.OK);
   }
 
+  @GetMapping("/data/{id}")
+  public ResponseEntity<List<FootprintData>> getFootprintsByUserId(@PathVariable Long id) {
+    logger.info("Get footprints by user id request received");
+    return new ResponseEntity<>(footprintDataService.getByUserId(id), HttpStatus.OK);
+  }
+
   @PostMapping
   public ResponseEntity<FootprintData> createFootprint(
-      @Valid @RequestBody FootprintData footprintData) {
+      @Valid @RequestBody FootprintDataStrings footprintData) {
     logger.info(" Post request received");
     return new ResponseEntity<>(footprintDataService.createFootprintData(footprintData),
         HttpStatus.CREATED);
@@ -57,7 +63,7 @@ public class FootprintDataController {
   @DeleteMapping("/{id}")
   public ResponseEntity<FootprintData> deleteFootprint(@PathVariable Long id) {
     logger.info(" Delete request received");
-    footprintDataService.deleteFoodprintData(id);
+    footprintDataService.deleteFootprintData(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 }
