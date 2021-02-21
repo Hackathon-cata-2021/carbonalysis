@@ -125,15 +125,15 @@ public class EmissionsDataServiceImpl implements EmissionsDataService{
 
     emissionsData.setFuel(EmissionsPounds / 2000);
 
-    if(emissionsDataStrings.getUtility().getFuel() != null) {
+    if(emissionsDataStrings.getUtility().getFuel() != 0) {
       Double pounds = emissionsDataStrings.getUtility().getFuel() * 22;
       total += pounds / 2000;
       emissionsData.setUtility(pounds / 2000);
-    } else if(emissionsDataStrings.getUtility().getKilowatt() != null) {
+    } else if(emissionsDataStrings.getUtility().getKilowatt() != 0) {
       Double pounds = emissionsDataStrings.getUtility().getKilowatt() * 1.85;
       total += pounds / 2000;
       emissionsData.setUtility(pounds / 2000);
-    } else if(emissionsDataStrings.getUtility().getNaturalGas() != null) {
+    } else if(emissionsDataStrings.getUtility().getNaturalGas() != 0) {
       Double pounds = emissionsDataStrings.getUtility().getNaturalGas() * 13.466;
       total += pounds / 2000;
       emissionsData.setUtility(pounds / 2000);
