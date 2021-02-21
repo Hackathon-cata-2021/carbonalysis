@@ -71,21 +71,6 @@ export default function FormPages() {
   };
 
   const handleSubmit = () => {
-    const payload = {
-      userId: user.id,
-      householdSize,
-      homeSize,
-      food,
-      water1,
-      water2,
-      purchases,
-      waste,
-      transportation,
-      publicTransit,
-      flights,
-      recycling
-    };
-
     axios({
       method: 'post',
       url: 'http://localhost:8080/footprint',
@@ -94,7 +79,7 @@ export default function FormPages() {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`
       },
       data: {
-        userId: user.id,
+        user_id: user.id,
         householdSize,
         homeSize,
         food,
@@ -114,18 +99,6 @@ export default function FormPages() {
     .catch(() => {
         throw new Error();
     })
-  
-    // HttpHelper('/footprint', 'POST', payload)
-    //   .then((response) => {
-    //     if (response.ok) {
-    //       history.push('/carbon-emissions');
-    //     } else {
-    //       throw new Error('oops something went wrong');
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     throw new Error(error);
-    //   })
   }
 
   return (

@@ -12,6 +12,7 @@ import styles from './FormPages.module.css';
 import { useHistory } from 'react-router-dom';
 import HttpHelper from '../../utils/HttpHelper';
 import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,25 +59,27 @@ export default function Emissions() {
   };
 
   const handleSubmit = () => {
-    const payload = {
-      userId: user.id,
-      car,
-      fuel,
-      utility,
-      offsets
-    };
-  
-    // HttpHelper('/emissions', 'POST', payload)
-    //   .then((response) => {
-    //     if (response.ok) {
-    //       history.push('/dashboard');
-    //     } else {
-    //       throw new Error('oops something went wrong');
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     throw new Error(error);
-    //   })
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/emissions',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`
+      },
+      data: {
+        userId: user.id,
+        car,
+        fuel,
+        utility,
+        offsets
+      }
+    })
+    .then(() => {
+        history.push('/carbon-emissions');
+    })
+    .catch(() => {
+        throw new Error();
+    })
   };
 
   return (
