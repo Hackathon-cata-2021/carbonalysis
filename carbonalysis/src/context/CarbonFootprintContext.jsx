@@ -24,6 +24,7 @@ export const MainProvider = ({ children }) => {
     foodWaste: false
   });
 
+  const [loggedIn, setLoggedIn] = useState(false);
   const [recycling, setRecycling] = useState(0);
   const [user, setUser] = useState({});
 
@@ -62,7 +63,8 @@ export const MainProvider = ({ children }) => {
         utility, setUtility,
         offsets, setOffsets,
         totalEmissions, setTotalEmissions,
-        user, setUser
+        user, setUser,
+        loggedIn, setLoggedIn
       }}
     >
       {children}
