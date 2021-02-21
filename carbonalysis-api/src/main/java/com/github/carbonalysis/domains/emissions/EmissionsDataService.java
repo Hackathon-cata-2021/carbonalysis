@@ -9,7 +9,7 @@ public interface EmissionsDataService {
 
   EmissionsData createEmissionsData(EmissionsDataStrings emissionsDataStrings);
 
-  List<EmissionsData> getByUserId(Long id);
+  List<EmissionsData> getByUserId(int id);
 
   EmissionsData updateEmissionsData(Long id, EmissionsData emissionsData);
 

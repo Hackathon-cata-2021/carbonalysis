@@ -40,7 +40,7 @@ public class EmissionsDataController {
   }
 
   @GetMapping("/data/{id}")
-  public ResponseEntity<List<EmissionsData>> getEmissionsByUserId(@PathVariable Long id) {
+  public ResponseEntity<List<EmissionsData>> getEmissionsByUserId(@PathVariable int id) {
     logger.info("Get emissions by user id request received");
     return new ResponseEntity<>(emissionsDataService.getByUserId(id), HttpStatus.OK);
   }

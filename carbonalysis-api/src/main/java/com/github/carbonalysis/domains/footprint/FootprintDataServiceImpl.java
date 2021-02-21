@@ -50,7 +50,7 @@ public class FootprintDataServiceImpl implements FootprintDataService{
   }
 
   @Override
-  public List<FootprintData> getByUserId(Long id) {
+  public List<FootprintData> getByUserId(int id) {
     List<FootprintData> footprint = footprintRepository.findByUserId(id);
     return footprint;
   }

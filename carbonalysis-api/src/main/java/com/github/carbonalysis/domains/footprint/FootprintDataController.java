@@ -39,7 +39,7 @@ public class FootprintDataController {
   }
 
   @GetMapping("/data/{id}")
-  public ResponseEntity<List<FootprintData>> getFootprintsByUserId(@PathVariable Long id) {
+  public ResponseEntity<List<FootprintData>> getFootprintsByUserId(@PathVariable int id) {
     logger.info("Get footprints by user id request received");
     return new ResponseEntity<>(footprintDataService.getByUserId(id), HttpStatus.OK);
   }

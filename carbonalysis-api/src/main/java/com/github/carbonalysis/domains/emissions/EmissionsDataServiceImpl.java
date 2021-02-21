@@ -49,7 +49,7 @@ public class EmissionsDataServiceImpl implements EmissionsDataService{
   }
 
   @Override
-  public List<EmissionsData> getByUserId(Long id) {
+  public List<EmissionsData> getByUserId(int id) {
     List<EmissionsData> emissions = emissionsRepository.findByUserId(id);
     return emissions;
   }
