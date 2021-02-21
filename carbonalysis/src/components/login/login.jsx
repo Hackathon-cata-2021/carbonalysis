@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom';
-import { carbonFootprintContext } from '../../context/CarbonFootprintContext'
+import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
+import HttpHelper from '../../utils/HttpHelper';
 
 const Login = () => {
     const {user, setUser} = useContext(carbonFootprintContext);
@@ -16,25 +18,26 @@ const Login = () => {
           }
           setCredentials({ ...credentials, [input]: event.target.value });
     }
+
     const submitHandler = (e) => {
         e.preventDefault();
 
-        HttpHelper('/login', 'POST', credentials)
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Invalid username or password');
-            })
-            .then((data) => {
-                sessionStorage.setItem('token', data.token);
-                setUser(data);
-                history.push('/dashboard');
-            })
-            .catch(() => {
-                setInvalidCredentials(true);
-            })
+        axios
+        .post('http://localhost:8080/login', {
+            username: credentials.username,
+            password: credentials.password
+        })
+        .then((response) => {
+            sessionStorage.setItem('token', response.data.jwt);
+            setUser(response.data.user);
+            history.push('/carbon-footprint');
+        })
+        .catch(() => {
+            setInvalidCredentials(true);
+        })
     }
+    
+
     return(
         <div>
             <form onSubmit={submitHandler}>
@@ -51,4 +54,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;
