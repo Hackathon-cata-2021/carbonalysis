@@ -18,8 +18,6 @@ public class FootprintData {
   @NotNull
   private int userId;
 
-  private Timestamp date_and_time;
-
   @NotNull
   private int household_size;
 
@@ -81,14 +79,6 @@ public class FootprintData {
 
   public void setUserId(int userId) {
     this.userId = userId;
-  }
-
-  public Timestamp getDate_and_time() {
-    return date_and_time;
-  }
-
-  public void setDate_and_time(Timestamp date_and_time) {
-    this.date_and_time = date_and_time;
   }
 
   public int getHousehold_size() {
@@ -184,7 +174,6 @@ public class FootprintData {
     return "FootprintData{" +
         "id=" + id +
         ", user_id=" + userId +
-        ", date_and_time='" + date_and_time + '\'' +
         ", household_size=" + household_size +
         ", home_size=" + home_size +
         ", food=" + food +

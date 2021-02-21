@@ -31,8 +31,6 @@ public class Users {
   @NotNull
   private String last_name;
 
-  private Timestamp created_at;
-
   @JsonIgnore
   private String salt;
 
@@ -92,14 +90,6 @@ public class Users {
     this.last_name = last_name;
   }
 
-  public Timestamp getCreated_at() {
-    return created_at;
-  }
-
-  public void setCreated_at(Timestamp created_at) {
-    this.created_at = created_at;
-  }
-
   public Address getAddress() {
     return address;
   }
@@ -124,7 +114,6 @@ public class Users {
         ", password='" + password + '\'' +
         ", first_name='" + first_name + '\'' +
         ", last_name='" + last_name + '\'' +
-        ", created_at='" + created_at + '\'' +
         ", address=" + address +
         '}';
   }
