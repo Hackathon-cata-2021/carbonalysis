@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import carbonalysisLogo from './carbonalysisLogo.png';
 import { Link, BrowserRouter as Router, NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css';
-import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,10 +29,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Navbar() {
-    const classes = useStyles();
-    const { user } = useContext(carbonFootprintContext);
-    
+export default function Navbar({ token }) {
+    const classes = useStyles();    
   
     return (
         <div className = {styles.navbar}>
@@ -44,7 +41,7 @@ export default function Navbar() {
                     </a>
                     <Typography variant="h6" className={classes.title}> </Typography>
                         {
-                            user ?
+                            token ?
                             <nav style = {{marginRight: "60px"}}>
                                 <NavLink to="/dashboard" className={styles.link}>Dashboard</NavLink>
                                 <NavLink to="/carbon-emissions" className={styles.link} >Calculate Emissions</NavLink>

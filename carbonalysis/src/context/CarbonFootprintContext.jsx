@@ -3,6 +3,7 @@ import React, { createContext, useState } from 'react';
 export const carbonFootprintContext = createContext();
 
 export const MainProvider = ({ children }) => {
+  const [token, setToken] = useState(false);
   const [householdSize, setHouseholdSize] = useState('');
   const [homeSize, setHomeSize] = useState('');
   const [food, setFood] = useState('');
@@ -44,6 +45,7 @@ export const MainProvider = ({ children }) => {
   return (
     <carbonFootprintContext.Provider
       value={{
+        token, setToken,
         householdSize, setHouseholdSize,
         homeSize, setHomeSize,
         food, setFood,
