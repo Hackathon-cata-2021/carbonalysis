@@ -6,7 +6,7 @@ const register = () => {
     return(
         <div className = {styles.formBody} style={{backgroundImage: `url(${BackgroundImage})`}}>
             <form className = {styles.formCard}>
-                <h1>Sign Up <u>FREE</u> Today!</h1>
+                <h1 className={styles.formHeading} >Sign Up <u>FREE</u> Today!</h1>
                 <div className={styles.column}>
                     <input className={styles.formInput} type="text" placeholder="First name"></input> <br/>
                     <input className={styles.formInput} type="text" placeholder="Last name"></input> <br/>
