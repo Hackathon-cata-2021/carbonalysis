@@ -140,7 +140,7 @@ export default function Dashboard() {
         
         emissionsFetch();
         footprintFetch();
-
+        
         getAllFootprints();
         getAllEmissions();
     }, [calculateAverage])
