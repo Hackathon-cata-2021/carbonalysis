@@ -3,6 +3,8 @@ import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom';
 import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 import HttpHelper from '../../utils/HttpHelper';
+import styles from './userEntryFormsStyling.module.css'
+import BackgroundImage from './userEntryFormsBackgroundImage.png'
 
 const Login = () => {
     const {user, setUser} = useContext(carbonFootprintContext);
@@ -39,14 +41,11 @@ const Login = () => {
     
 
     return(
-        <div>
-            <form onSubmit={submitHandler}>
-                <label>Email</label>
-                <input value={credentials.username} onChange = {(e) => onChangeHandler(e, "username")} type="email"></input>
-                <br/>
-                <label>Password</label>
-                <input value={credentials.password} onChange = {(e) => onChangeHandler(e, "password")} type="password"></input>
-                <br/>
+        <div className={styles.body} style={{backgroundImage: `url(${BackgroundImage})`}}>
+            <form className={styles.formCard}onSubmit={submitHandler}>
+                <h1>Login</h1>
+                <input placeholder="Username" value={credentials.username} onChange = {(e) => onChangeHandler(e, "username")} type="email"></input> <br/>
+                <input placeholder="Password" value={credentials.password} onChange = {(e) => onChangeHandler(e, "password")} type="password"></input>
                 <button type="submit">Submit</button>
             </form>
             {invalidCredentials && <p>Invalid username or password</p>}

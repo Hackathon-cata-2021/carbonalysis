@@ -36,16 +36,16 @@ export default function Navbar() {
         <div className = {styles.navbar}>
             <AppBar position="fixed" className={classes.navbar} className = {styles.navbar}>
                 <Toolbar className={classes.root} className = {styles.toolbar}>
-                    <a href="/">
+                    <a href="/" style = {{marginLeft: "60px"}}>
                         <img src={carbonalysisLogo} className={styles.logo} />
                     </a>
                     <Typography variant="h6" className={classes.title}> </Typography>
-                    <nav>
-                        <NavLink to="/dashboard" className={classes.link} >Dashboard</NavLink>
-                        <NavLink to="/carbon-emissions" className={classes.link} >Calculate Emissions</NavLink>
-                        <NavLink to="/carbon-footprint" className={classes.link}>Calculate Footprint</NavLink>
-                        <NavLink to="/leaderboard" className={classes.link}>Leaderboard</NavLink>
-                        <NavLink to="/login" className={classes.link}>Login</NavLink>
+                    <nav style = {{marginRight: "60px"}}>
+                        <NavLink to="/dashboard" className={styles.link} >Dashboard</NavLink>
+                        <NavLink to="/carbon-emissions" className={styles.link} >Calculate Emissions</NavLink>
+                        <NavLink to="/carbon-footprint" className={styles.link}>Calculate Footprint</NavLink>
+                        <NavLink to="/leaderboard" className={styles.link}>Leaderboard</NavLink>
+                        <NavLink to="/login" className={styles.link}>Login</NavLink>
                     </nav>
                 </Toolbar>
             </AppBar>
