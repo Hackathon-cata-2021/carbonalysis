@@ -2,8 +2,16 @@ import React from 'react';
 import styles from './Homepage.module.css'
 import Background from './homepageImage.png'
 import HomepageButton from './homepageButton/HomepageButton'
+import { useHistory } from 'react-router-dom';
 
-const homepage = () => {
+const Homepage = () => {
+
+    let history = useHistory();
+
+    const onClickRedirect = () => {
+        history.push('/register')
+    }
+
     return (
         <div className = {styles.body} style = {{backgroundImage: `url(${Background})`}}>
             <div className = {styles.container} >
@@ -14,10 +22,10 @@ const homepage = () => {
                     <li>Get listed on the global leaderboards!</li>
                     <li>Save your footprint progress!</li>
                 </ul>
-                <HomepageButton buttonText="Register!"/>
+                <HomepageButton buttonText="Register!" onClick={onClickRedirect}/>
             </div>
         </div>
     )
 }
 
-export default homepage;
+export default Homepage;
