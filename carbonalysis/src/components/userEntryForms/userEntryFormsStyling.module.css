@@ -28,6 +28,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     padding: 100px;
+    background-size: cover;
 }
 
 .formCard {
