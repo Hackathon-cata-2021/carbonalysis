@@ -85,7 +85,7 @@ const Register = () => {
 
     return(
         <div className = {styles.formBody} style={{backgroundImage: `url(${BackgroundImage})`}}>
-            <form className = {styles.formCard}>
+            <form className = {styles.formCard} onSubmit={handleSubmit}>
                 <h1 className={styles.formHeading} >Sign Up <u>FREE</u> Today!</h1>
                 <div className={styles.column}>
                     <input className={styles.formInput} type="text" placeholder="First name" value={user.first_name} onChange={e => onChangeUser(e, 'fn')}></input> <br/>
@@ -101,7 +101,7 @@ const Register = () => {
                     <input className={styles.formInput} type="text" placeholder="Zip Code" value={address.post_code} onChange={e => onChangeAdd(e, 'post')}></input> <br/>
                     <input className={styles.formInput} type="text" placeholder="Country" value={address.country} onChange={e => onChangeAdd(e, 'country')}></input>
                 </div>
-                <button className={styles.formButton} onClick={handleSubmit}>Sign Up!</button>
+                <button className={styles.formButton} type="submit">Sign Up!</button>
             </form>
         </div>
     )
