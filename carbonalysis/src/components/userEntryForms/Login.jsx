@@ -41,12 +41,12 @@ const Login = () => {
     
 
     return(
-        <div className={styles.body} style={{backgroundImage: `url(${BackgroundImage})`}}>
+        <div className={styles.formBody} style={{backgroundImage: `url(${BackgroundImage})`}}>
             <form className={styles.formCard}onSubmit={submitHandler}>
-                <h1>Login</h1>
-                <input placeholder="Username" value={credentials.username} onChange = {(e) => onChangeHandler(e, "username")} type="email"></input> <br/>
-                <input placeholder="Password" value={credentials.password} onChange = {(e) => onChangeHandler(e, "password")} type="password"></input>
-                <button type="submit">Submit</button>
+                <h1 className={styles.formHeading} >Login</h1>
+                <input className={styles.formInput} placeholder="Username" value={credentials.username} onChange = {(e) => onChangeHandler(e, "username")} type="email"></input> <br/>
+                <input className={styles.formInput} placeholder="Password" value={credentials.password} onChange = {(e) => onChangeHandler(e, "password")} type="password"></input>
+                <button className={styles.formButton} type="submit">Submit</button>
             </form>
             {invalidCredentials && <p>Invalid username or password</p>}
         </div>
