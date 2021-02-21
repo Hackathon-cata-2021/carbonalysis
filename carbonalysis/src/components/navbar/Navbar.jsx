@@ -46,7 +46,7 @@ export default function Navbar({ token }) {
                                 <NavLink to="/dashboard" className={styles.link}>Dashboard</NavLink>
                                 <NavLink to="/carbon-emissions" className={styles.link} >Calculate Emissions</NavLink>
                                 <NavLink to="/carbon-footprint" className={styles.link}>Calculate Footprint</NavLink>
-                                <NavLink to="/leaderboard" className={styles.link}>Leaderboard</NavLink>
+                                {/* <NavLink to="/leaderboard" className={styles.link}>Leaderboard</NavLink> */}
                                 <NavLink to="/logout" className={styles.link}>Logout</NavLink>
                             </nav>
                             :
