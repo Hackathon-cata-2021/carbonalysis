@@ -39,8 +39,7 @@ export default function Navbar() {
                     <a href="/">
                         <img src={carbonalysisLogo} className={styles.logo} />
                     </a>
-                    <Typography variant="h6" className={classes.title}>
-                    </Typography>\
+                    <Typography variant="h6" className={classes.title}> </Typography>
                     <nav>
                         <NavLink to="/dashboard" className={classes.link} >Dashboard</NavLink>
                         <NavLink to="/carbon-emissions" className={classes.link} >Calculate Emissions</NavLink>

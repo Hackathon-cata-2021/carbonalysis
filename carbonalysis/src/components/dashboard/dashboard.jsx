@@ -12,11 +12,11 @@ import {
 import { Animation } from '@devexpress/dx-react-chart';
 
 const footprintData = [
-    { date: '12/24/2020', footprint: 2.525 },
-    { date: '1960', footprint: 3.018 },
-    { date: '1970', footprint: 3.682 },
-    { date: '1980', footprint: 4.440 },
-    { date: '1990', footprint: 5.310 },
+    { averages: 'userAverage', footprint: 2.525 },
+    { averages: 'globalAverage', footprint: 3.018 },
+    // { date: '1970', footprint: 3.682 },
+    // { date: '1980', footprint: 4.440 },
+    // { date: '1990', footprint: 5.310 },
 
 ];
 const emissionsData = [
@@ -55,10 +55,10 @@ export default function Dashboard() {
 
                     <BarSeries
                         valueField="footprint"
-                        argumentField="date"
+                        argumentField="averages"
                         
                     />
-                    <Title text="Carbon Footprint" />
+                    <Title text="Average Carbon Footprint" />
                     <Animation />
                 </Chart>
             </Paper>
