@@ -28,6 +28,8 @@ const useStyles = makeStyles(() => ({
 export default function Dashboard() {
     const classes = useStyles();
 
+    const userId = sessionStorage.getItem('userId');
+
     const [emissionsRes, setEmissionsRes] = useState(0);
     const [footprintRes, setFootprintRes] = useState(0);
     const [allEmissions, setAllEmissions] = useState(0);
@@ -74,7 +76,7 @@ export default function Dashboard() {
         const emissionsFetch = async () => {
             await axios({
                 method: 'get',
-                url: `http://localhost:8080/emissions/data/${user.id}`,
+                url: `http://localhost:8080/emissions/data/${userId}`,
                 headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -91,7 +93,7 @@ export default function Dashboard() {
         const footprintFetch = async () => {
             await axios({
                 method: 'get',
-                url: `http://localhost:8080/footprint/data/${user.id}`,
+                url: `http://localhost:8080/footprint/data/${userId}`,
                 headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -141,10 +143,10 @@ export default function Dashboard() {
         
         emissionsFetch();
         footprintFetch();
-
+        
         getAllFootprints();
         getAllEmissions();
-    }, [calculateAverage])
+    }, [calculateAverage, user])
 
     return (
         <div className={styles.dashBody}>

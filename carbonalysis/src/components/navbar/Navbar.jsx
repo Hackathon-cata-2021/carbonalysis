@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import carbonalysisLogo from './carbonalysisLogo.png';
 import { Link, BrowserRouter as Router, NavLink } from 'react-router-dom';
-import styles from './NavBar.module.css'
+import styles from './NavBar.module.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Navbar() {
-    const classes = useStyles();
+export default function Navbar({ token }) {
+    const classes = useStyles();    
   
     return (
         <div className = {styles.navbar}>
@@ -40,13 +40,20 @@ export default function Navbar() {
                         <img src={carbonalysisLogo} className={styles.logo} />
                     </a>
                     <Typography variant="h6" className={classes.title}> </Typography>
-                    <nav style = {{marginRight: "60px"}}>
-                        <NavLink to="/dashboard" className={styles.link} >Dashboard</NavLink>
-                        <NavLink to="/carbon-emissions" className={styles.link} >Calculate Emissions</NavLink>
-                        <NavLink to="/carbon-footprint" className={styles.link}>Calculate Footprint</NavLink>
-                        <NavLink to="/leaderboard" className={styles.link}>Leaderboard</NavLink>
-                        <NavLink to="/login" className={styles.link}>Login</NavLink>
-                    </nav>
+                        {
+                            token ?
+                            <nav style = {{marginRight: "60px"}}>
+                                <NavLink to="/dashboard" className={styles.link}>Dashboard</NavLink>
+                                <NavLink to="/carbon-emissions" className={styles.link} >Calculate Emissions</NavLink>
+                                <NavLink to="/carbon-footprint" className={styles.link}>Calculate Footprint</NavLink>
+                                <NavLink to="/leaderboard" className={styles.link}>Leaderboard</NavLink>
+                                <NavLink to="/logout" className={styles.link}>Logout</NavLink>
+                            </nav>
+                            :
+                            <nav style = {{marginRight: "60px"}}>
+                                <NavLink to="/login" className={styles.link}>Login</NavLink>
+                            </nav>
+                        }
                 </Toolbar>
             </AppBar>
         </div >
