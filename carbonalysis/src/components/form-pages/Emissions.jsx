@@ -50,7 +50,7 @@ export default function Emissions() {
 
   return (
     <div className={classes.root}>
-      <h1 className={styles.title}>Carbon Footprint Analyzer</h1>
+      <h1 className={styles.title}>CO2 Emissions Analyzer</h1>
       <Paper square elevation={0} className={classes.header}>
         <Typography>{co2Emissions[activeStep].label}</Typography>
       </Paper>
