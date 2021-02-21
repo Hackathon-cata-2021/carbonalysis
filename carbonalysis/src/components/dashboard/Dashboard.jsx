@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 import {
     Chart,
     BarSeries,
@@ -10,23 +10,7 @@ import {
     ValueAxis,
 } from '@devexpress/dx-react-chart-material-ui';
 import { Animation } from '@devexpress/dx-react-chart';
-
-const footprintData = [
-    { averages: 'userAverage', footprint: 2.525 },
-    { averages: 'globalAverage', footprint: 3.018 },
-    // { date: '1970', footprint: 3.682 },
-    // { date: '1980', footprint: 4.440 },
-    // { date: '1990', footprint: 5.310 },
-
-];
-const emissionsData = [
-    { date: '12/24/2020', emissions: 2.525 },
-    { date: '1960', emissions: 30.18 },
-    { date: '1970', emissions: 3.682 },
-    { date: '1980', emissions: 4.440 },
-    { date: '1990', emissions: 5.310 },
-
-];
+import axios from 'axios';
 
 const useStyles = makeStyles(() => ({
     chartContainer: {
@@ -43,6 +27,129 @@ const useStyles = makeStyles(() => ({
 export default function Dashboard() {
     const classes = useStyles();
 
+    const [emissionsRes, setEmissionsRes] = useState(0);
+    const [footprintRes, setFootprintRes] = useState(0);
+    const [allEmissions, setAllEmissions] = useState(0);
+    const [allFootprints, setAllFootprints] = useState(0);
+
+    const { user } = useContext(carbonFootprintContext);
+
+    const footprintData = [
+        { averages: 'userAverage', footprint: footprintRes },
+        { averages: 'globalAverage', footprint: allFootprints }
+        // { date: '1970', footprint: 3.682 },
+        // { date: '1980', footprint: 4.440 },
+        // { date: '1990', footprint: 5.310 },
+
+    ];
+    const emissionsData = [
+        { averages: 'userAverage', emissions: emissionsRes },
+        { averages: 'globalAverage', emissions: allEmissions }
+        // { date: '1970', emissions: 3.682 },
+        // { date: '1980', emissions: 4.440 },
+        // { date: '1990', emissions: 5.310 },
+
+    ];
+
+    
+    const calculateAverage = (data, type, user) => {
+        let total = 0;
+
+        for (const x of data) {
+            if (type === 'emissions') {
+                total += x.total_emissions;
+            } else {
+                total += x.total_footprint;
+            }
+        }
+
+        total /= data.length;
+
+        if (user === 'all' && type === 'emissions') {
+            setAllEmissions(total);
+        } else if (user === 'all' && type === 'footprint') {
+            setAllFootprints(total);
+        } else if (user === 'self' && type === 'emissions') {
+            setEmissionsRes(total);
+        } else {
+            setFootprintRes(total);
+        }
+    }
+
+    useEffect(() => {
+        const emissionsFetch = async () => {
+            await axios({
+                method: 'get',
+                url: `http://localhost:8080/emissions/data/${user.id}`,
+                headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
+                }
+            })
+            .then((response) => {
+                calculateAverage(response.data, 'emissions', 'self');
+            })
+            .catch(() => {
+                throw new Error();
+            });
+        }
+
+        const footprintFetch = async () => {
+            await axios({
+                method: 'get',
+                url: `http://localhost:8080/footprint/data/${user.id}`,
+                headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
+                }
+            })
+            .then((response) => {
+                calculateAverage(response.data, 'footprint', 'self');
+            })
+            .catch(() => {
+                throw new Error();
+            });
+        }
+
+        const getAllFootprints = async () => {
+            await axios({
+                method: 'get',
+                url: `http://localhost:8080/footprint`,
+                headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
+                }
+            })
+            .then((response) => {
+                calculateAverage(response.data, 'footprint', 'all');
+            })
+            .catch(() => {
+                throw new Error();
+            });
+        }
+
+        const getAllEmissions = async () => {
+            await axios({
+                method: 'get',
+                url: `http://localhost:8080/emissions`,
+                headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
+                }
+            })
+            .then((response) => {
+                calculateAverage(response.data, 'emissions', 'all');
+            })
+            .catch(() => {
+                throw new Error();
+            });
+        }
+        
+          emissionsFetch();
+          footprintFetch();
+          getAllFootprints();
+          getAllEmissions();
+    }, [calculateAverage])
 
     return (
         <div className={classes.chartContainer}>
@@ -58,7 +165,7 @@ export default function Dashboard() {
                         argumentField="averages"
                         
                     />
-                    <Title text="Average Carbon Footprint" />
+                    <Title text="Average Carbon Footprint (in points)" />
                     <Animation />
                 </Chart>
             </Paper>
@@ -72,10 +179,10 @@ export default function Dashboard() {
 
                     <BarSeries
                         valueField="emissions"
-                        argumentField="date"
+                        argumentField="averages"
                         color="green"
                     />
-                    <Title text="Your latest 5" />
+                    <Title text="Average CO2 Emissions (in tons)" />
                     <Animation />
                 </Chart>
             </Paper>

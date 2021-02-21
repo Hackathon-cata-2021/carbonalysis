@@ -10,7 +10,6 @@ import RadioEmissions from '../radio-button/RadioEmissions';
 import { co2Emissions } from '../../utils/questions';
 import styles from './FormPages.module.css';
 import { useHistory } from 'react-router-dom';
-import HttpHelper from '../../utils/HttpHelper';
 import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 import axios from 'axios';
 

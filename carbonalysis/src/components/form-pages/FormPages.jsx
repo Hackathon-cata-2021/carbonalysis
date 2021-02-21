@@ -10,7 +10,6 @@ import Radio from '../radio-button/Radio';
 import { carbonFootprintQuestions } from '../../utils/questions';
 import styles from './FormPages.module.css';
 import { useHistory } from 'react-router-dom';
-import HttpHelper from '../../utils/HttpHelper';
 import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 import axios from 'axios';
 
@@ -59,7 +58,6 @@ export default function FormPages() {
     publicTransit,
     flights,
     recycling,
-    totalFootprint, setTotalFootprint
   } = useContext(carbonFootprintContext);
 
   const handleNext = () => {
