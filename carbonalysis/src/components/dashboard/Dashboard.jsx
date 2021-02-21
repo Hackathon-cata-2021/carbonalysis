@@ -11,6 +11,7 @@ import {
 } from '@devexpress/dx-react-chart-material-ui';
 import { Animation } from '@devexpress/dx-react-chart';
 import axios from 'axios';
+import styles from './Dashboard.module.css'
 
 const useStyles = makeStyles(() => ({
     chartContainer: {
@@ -35,13 +36,13 @@ export default function Dashboard() {
     const { user } = useContext(carbonFootprintContext);
 
     const footprintData = [
-        { averages: 'userAverage', footprint: footprintRes },
-        { averages: 'globalAverage', footprint: allFootprints }
+        { averages: 'Your Average', footprint: footprintRes },
+        { averages: 'Global Average', footprint: allFootprints }
     ];
 
     const emissionsData = [
-        { averages: 'userAverage', emissions: emissionsRes },
-        { averages: 'globalAverage', emissions: allEmissions }
+        { averages: 'Your Average', emissions: emissionsRes },
+        { averages: 'Global Average', emissions: allEmissions }
     ];
 
     
@@ -146,40 +147,48 @@ export default function Dashboard() {
     }, [calculateAverage])
 
     return (
-        <div className={classes.chartContainer}>
-            <Paper className={classes.barchart}>
-                <Chart
-                    data={footprintData}
-                >
-                    <ArgumentAxis />
-                    <ValueAxis max={1000} />
+        <div className={styles.dashBody}>
+            <div className={styles.dashColumnOne}>
+                <h1 className={styles.dashColumnHeading}>How You Compare Against The World</h1>
+                <div className={classes.chartContainer}>
+                    <Paper style={{boxShadow: "none"}} className={classes.barchart}>
+                        <Chart
+                            data={footprintData}
+                        >
+                            <ArgumentAxis />
+                            <ValueAxis max={1000} />
 
-                    <BarSeries
-                        valueField="footprint"
-                        argumentField="averages"
-                        
-                    />
-                    <Title text="Average Carbon Footprint (in points)" />
-                    <Animation />
-                </Chart>
-            </Paper>
+                            <BarSeries
+                                valueField="footprint"
+                                argumentField="averages"
+                                
+                            />
+                            <Title text="Average Carbon Footprint (in points)" />
+                            <Animation />
+                        </Chart>
+                    </Paper>
 
-            <Paper className={classes.barchart}>
-                <Chart
-                    data={emissionsData}
-                >
-                    <ArgumentAxis />
-                    <ValueAxis max={1000} />
+                    <Paper style={{boxShadow: "none"}} className={classes.barchart}>
+                        <Chart
+                            data={emissionsData}
+                        >
+                            <ArgumentAxis />
+                            <ValueAxis max={1000} />
 
-                    <BarSeries
-                        valueField="emissions"
-                        argumentField="averages"
-                        color="green"
-                    />
-                    <Title text="Average CO2 Emissions (in tons)" />
-                    <Animation />
-                </Chart>
-            </Paper>
+                            <BarSeries
+                                valueField="emissions"
+                                argumentField="averages"
+                                color="green"
+                            />
+                            <Title text="Average CO2 Emissions (in tons)" />
+                            <Animation />
+                        </Chart>
+                    </Paper>
+                </div>
+            </div>
+            <div className={styles.dashColumnTwo}>
+                <h1 className={styles.dashColumnHeading}>Your Stats</h1>
+            </div>
         </div>
     );
 }
