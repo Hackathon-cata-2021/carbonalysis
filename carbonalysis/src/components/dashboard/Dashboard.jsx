@@ -75,7 +75,7 @@ export default function Dashboard() {
                         argumentField="date"
                         color="green"
                     />
-                    <Title text="Greenhouse Gas Emissions" />
+                    <Title text="Your latest 5" />
                     <Animation />
                 </Chart>
             </Paper>
