@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class ApplicationRunner {
+
   private static Logger logger = LogManager.getLogger(ApplicationRunner.class);
 
   public static void main(String[] args) {

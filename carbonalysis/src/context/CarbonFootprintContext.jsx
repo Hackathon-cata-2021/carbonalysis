@@ -6,7 +6,8 @@ export const MainProvider = ({ children }) => {
   const [householdSize, setHouseholdSize] = useState('');
   const [homeSize, setHomeSize] = useState('');
   const [food, setFood] = useState('');
-  const [water, setWater] = useState('');
+  const [water1, setWater1] = useState('');
+  const [water2, setWater2] = useState('');
   const [purchases, setPurchases] = useState('');
   const [waste, setWaste] = useState('');
   const [transportation, setTransportation] = useState('');
@@ -22,6 +23,9 @@ export const MainProvider = ({ children }) => {
     steel: false,
     foodWaste: false
   });
+
+  const [recycling, setRecycling] = useState(0);
+  const [user, setUser] = useState({});
 
   const [car, setCar] = useState('');
   const [fuel, setFuel] = useState({
@@ -43,7 +47,8 @@ export const MainProvider = ({ children }) => {
         householdSize, setHouseholdSize,
         homeSize, setHomeSize,
         food, setFood,
-        water, setWater,
+        water1, setWater1,
+        water2, setWater2,
         purchases, setPurchases,
         waste, setWaste,
         transportation, setTransportation,
@@ -51,11 +56,13 @@ export const MainProvider = ({ children }) => {
         flights, setFlights,
         totalFootprint, setTotalFootprint,
         recycle, setRecycle,
+        recycling, setRecycling,
         car, setCar,
         fuel, setFuel,
         utility, setUtility,
         offsets, setOffsets,
-        totalEmissions, setTotalEmissions
+        totalEmissions, setTotalEmissions,
+        user, setUser
       }}
     >
       {children}

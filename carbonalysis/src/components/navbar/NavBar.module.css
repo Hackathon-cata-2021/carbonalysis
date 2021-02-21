@@ -2,3 +2,21 @@
     color: "black";
     padding: "5px";
 }
+
+.logo {
+    max-width: 250px;
+}
+
+.navbar {
+    height: 10vh;
+    background-color: white;
+}
+
+.toolbar {
+    background-color: white;
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    align-items: center;
+    height: 10vh;
+}

@@ -3,18 +3,18 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import FormPages from '../form-pages/FormPages';
 import Emissions from '../form-pages/Emissions';
-import Homepage from '../homepage/homepage';
-import Login from '../login/login';
-import Register from '../register/register'
-import Dashboard from '../dashboard/dashboard'
+import Homepage from '../homepage/Homepage';
+import Login from '../login/Login';
+import Register from '../register/Register';
+import Dashboard from '../dashboard/Dashboard';
 import Navbar from '../navbar/Navbar'
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <div className="App-container">
         <Router>
+        <Navbar />
+          <div className="App-container">
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/register" component={Register} />
@@ -23,9 +23,9 @@ function App() {
             <Route exact path="/carbon-emissions" component={Emissions} />
             <Route exact path="/dashboard" component={Dashboard} />
           </Switch>
+          </div>
         </Router>
       </div>
-    </div>
   );
 }
 
