@@ -35,3 +35,13 @@
     margin: 15px;
     height: 70vh;
 }
+
+.linkItem {
+    font-size: 23px;
+    color: #35A407;
+}
+
+.linkItem:hover {
+    color: #E4670C;
+    text-decoration: none;
+}

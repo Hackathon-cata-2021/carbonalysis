@@ -180,7 +180,7 @@ export default function Dashboard() {
                             <BarSeries
                                 valueField="emissions"
                                 argumentField="averages"
-                                color="green"
+                                color="#35A407"
                             />
                             <Title text="Average CO2 Emissions (in tons)" />
                             <Animation />
@@ -190,11 +190,27 @@ export default function Dashboard() {
             </div>
             <div className={styles.dashColumnTwo}>
                 <h1 className={styles.dashColumnHeading}>Your Stats</h1>
-                <div style={{textAlign: "left"}}class="MuiTypography-root Title-root-8 MuiTypography-h5">
+                <div style={{textAlign: "left"}} class="MuiTypography-root Title-root-8 MuiTypography-h5">
                     Avg. Carbon Footprint: <span style={{color:"#e4670c"}}>{footprintRes} points</span> <br/>
                 </div>
-                <div style={{textAlign: "left"}}class="MuiTypography-root Title-root-8 MuiTypography-h5">
+                <div style={{textAlign: "left"}} class="MuiTypography-root Title-root-8 MuiTypography-h5">
                     Avg. CO2 Emissions: <span style={{color:"#e4670c"}}>{emissionsRes} tons</span>
+                </div>
+                <h1 className={styles.dashColumnHeading} style={{marginTop:"120px"}}>Global Resources</h1>
+                <div style={{textAlign:"left", marginBottom:"5px"}}>
+                        <a className={styles.linkItem} target="_blank" href="https://blogs.ei.columbia.edu/2018/12/27/35-ways-reduce-carbon-footprint/">
+                            35 Easy Ways to Reduce Carbon Footprint
+                        </a>
+                </div>
+                <div style={{textAlign:"left", marginBottom:"5px"}}>
+                        <a className={styles.linkItem} target="_blank" href="https://cotap.org/reduce-carbon-footprint/">
+                            25 Tips to Reduce Carbon Footprint
+                        </a>
+                </div>
+                <div style={{textAlign:"left", marginBottom:"5px"}}>
+                        <a className={styles.linkItem} target="_blank" href="https://blogs.ei.columbia.edu/2018/12/27/35-ways-reduce-carbon-footprint/">
+                            25+ Ways to Reduce Carbon Emissions
+                        </a>
                 </div>
             </div>
         </div>
