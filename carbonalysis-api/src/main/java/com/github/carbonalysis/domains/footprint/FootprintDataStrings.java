@@ -3,37 +3,37 @@ package com.github.carbonalysis.domains.footprint;
 import java.util.Arrays;
 
 public class FootprintDataStrings {
-  private int user_id;
+  private int userId;
 
-  private String[] householdSize;
+  private String householdSize;
 
-  private String[] homeSize;
+  private String homeSize;
 
-  private String[] food;
+  private String food;
 
-  private String[] water1;
+  private String water1;
 
-  private String[] water2;
+  private String water2;
 
-  private String[] purchases;
+  private String purchases;
 
-  private String[] waste;
+  private String waste;
 
-  private String[] transportation;
+  private String transportation;
 
-  private String[] publicTransit;
+  private String publicTransit;
 
-  private String[] flights;
+  private String flights;
 
   private int recycling;
 
   public FootprintDataStrings() {
   }
 
-  public FootprintDataStrings(int user_id, String[] householdSize, String[] homeSize,
-      String[] food, String[] water1, String[] water2, String[] purchases, String[] waste,
-      String[] transportation, String[] publicTransit, String[] flights, int recycling) {
-    this.user_id = user_id;
+  public FootprintDataStrings(int userId, String householdSize, String homeSize,
+      String food, String water1, String water2, String purchases, String waste,
+      String transportation, String publicTransit, String flights, int recycling) {
+    this.userId = userId;
     this.householdSize = householdSize;
     this.homeSize = homeSize;
     this.food = food;
@@ -47,91 +47,109 @@ public class FootprintDataStrings {
     this.recycling = recycling;
   }
 
-  public int getUser_id() {
-    return user_id;
+  @Override
+  public String toString() {
+    return "FootprintDataStrings{" +
+        "userId=" + userId +
+        ", householdSize='" + householdSize + '\'' +
+        ", homeSize='" + homeSize + '\'' +
+        ", food='" + food + '\'' +
+        ", water1='" + water1 + '\'' +
+        ", water2='" + water2 + '\'' +
+        ", purchases='" + purchases + '\'' +
+        ", waste='" + waste + '\'' +
+        ", transportation='" + transportation + '\'' +
+        ", publicTransit='" + publicTransit + '\'' +
+        ", flights='" + flights + '\'' +
+        ", recycling=" + recycling +
+        '}';
   }
 
-  public void setUser_id(int user_id) {
-    this.user_id = user_id;
+  public int getUserId() {
+    return userId;
   }
 
-  public String[] getHouseholdSize() {
+  public void setUserId(int userId) {
+    this.userId = userId;
+  }
+
+  public String getHouseholdSize() {
     return householdSize;
   }
 
-  public void setHouseholdSize(String[] householdSize) {
+  public void setHouseholdSize(String householdSize) {
     this.householdSize = householdSize;
   }
 
-  public String[] getHomeSize() {
+  public String getHomeSize() {
     return homeSize;
   }
 
-  public void setHomeSize(String[] homeSize) {
+  public void setHomeSize(String homeSize) {
     this.homeSize = homeSize;
   }
 
-  public String[] getFood() {
+  public String getFood() {
     return food;
   }
 
-  public void setFood(String[] food) {
+  public void setFood(String food) {
     this.food = food;
   }
 
-  public String[] getWater1() {
+  public String getWater1() {
     return water1;
   }
 
-  public void setWater1(String[] water1) {
+  public void setWater1(String water1) {
     this.water1 = water1;
   }
 
-  public String[] getWater2() {
+  public String getWater2() {
     return water2;
   }
 
-  public void setWater2(String[] water2) {
+  public void setWater2(String water2) {
     this.water2 = water2;
   }
 
-  public String[] getPurchases() {
+  public String getPurchases() {
     return purchases;
   }
 
-  public void setPurchases(String[] purchases) {
+  public void setPurchases(String purchases) {
     this.purchases = purchases;
   }
 
-  public String[] getWaste() {
+  public String getWaste() {
     return waste;
   }
 
-  public void setWaste(String[] waste) {
+  public void setWaste(String waste) {
     this.waste = waste;
   }
 
-  public String[] getTransportation() {
+  public String getTransportation() {
     return transportation;
   }
 
-  public void setTransportation(String[] transportation) {
+  public void setTransportation(String transportation) {
     this.transportation = transportation;
   }
 
-  public String[] getPublicTransit() {
+  public String getPublicTransit() {
     return publicTransit;
   }
 
-  public void setPublicTransit(String[] publicTransit) {
+  public void setPublicTransit(String publicTransit) {
     this.publicTransit = publicTransit;
   }
 
-  public String[] getFlights() {
+  public String getFlights() {
     return flights;
   }
 
-  public void setFlights(String[] flights) {
+  public void setFlights(String flights) {
     this.flights = flights;
   }
 
@@ -141,23 +159,5 @@ public class FootprintDataStrings {
 
   public void setRecycling(int recycling) {
     this.recycling = recycling;
-  }
-
-  @Override
-  public String toString() {
-    return "FootprintDataStrings{" +
-        "user_id=" + user_id +
-        ", householdSize=" + Arrays.toString(householdSize) +
-        ", homesize=" + Arrays.toString(homeSize) +
-        ", food=" + Arrays.toString(food) +
-        ", water1=" + Arrays.toString(water1) +
-        ", water2=" + Arrays.toString(water2) +
-        ", purchases=" + Arrays.toString(purchases) +
-        ", waste=" + Arrays.toString(waste) +
-        ", transportation=" + Arrays.toString(transportation) +
-        ", publicTransit=" + Arrays.toString(publicTransit) +
-        ", flights=" + Arrays.toString(flights) +
-        ", recycling=" + Integer.toString(recycling) +
-        '}';
   }
 }

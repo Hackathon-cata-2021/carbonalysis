@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FootprintRepository extends JpaRepository<FootprintData, Long> {
-  List<FootprintData> findByUser_id(Long id);
+  List<FootprintData> findByUserId(Long id);
 }

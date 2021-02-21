@@ -1,6 +1,5 @@
 package com.github.carbonalysis.domains.emissions;
 
-import com.github.carbonalysis.domains.footprint.FootprintData;
 import com.github.carbonalysis.exceptions.ResourceNotFound;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +50,7 @@ public class EmissionsDataServiceImpl implements EmissionsDataService{
 
   @Override
   public List<EmissionsData> getByUserId(Long id) {
-    List<EmissionsData> emissions = emissionsRepository.findByUser_id(id);
+    List<EmissionsData> emissions = emissionsRepository.findByUserId(id);
     return emissions;
   }
 
@@ -100,7 +99,7 @@ public class EmissionsDataServiceImpl implements EmissionsDataService{
   public EmissionsData analyzeStrings(EmissionsDataStrings emissionsDataStrings) {
     EmissionsData emissionsData = new EmissionsData();
 
-    emissionsData.setUser_id(emissionsDataStrings.getUser_id());
+    emissionsData.setUserId(emissionsDataStrings.getUserId());
 
     Double total = 0.0;
 

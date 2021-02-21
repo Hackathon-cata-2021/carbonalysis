@@ -51,7 +51,7 @@ public class FootprintDataServiceImpl implements FootprintDataService{
 
   @Override
   public List<FootprintData> getByUserId(Long id) {
-    List<FootprintData> footprint = footprintRepository.findByUser_id(id);
+    List<FootprintData> footprint = footprintRepository.findByUserId(id);
     return footprint;
   }
 
@@ -100,7 +100,7 @@ public class FootprintDataServiceImpl implements FootprintDataService{
   public FootprintData analyzeStrings(FootprintDataStrings footprintDataStrings) {
     FootprintData footprintData = new FootprintData();
 
-    footprintData.setUser_id(footprintDataStrings.getUser_id());
+    footprintData.setUserId(footprintDataStrings.getUserId());
 
     int total = 0;
 

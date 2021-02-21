@@ -1,7 +1,7 @@
 package com.github.carbonalysis.domains.emissions;
 
 public class EmissionsDataStrings {
-  private int user_id;
+  private int userId;
 
   private String car;
 
@@ -14,21 +14,21 @@ public class EmissionsDataStrings {
   public EmissionsDataStrings() {
   }
 
-  public EmissionsDataStrings(int user_id, String car,
+  public EmissionsDataStrings(int userId, String car,
       Fuel fuel, Utilit utility, Double offsets) {
-    this.user_id = user_id;
+    this.userId = userId;
     this.car = car;
     this.fuel = fuel;
     this.utility = utility;
     this.offsets = offsets;
   }
 
-  public int getUser_id() {
-    return user_id;
+  public int getUserId() {
+    return userId;
   }
 
-  public void setUser_id(int user_id) {
-    this.user_id = user_id;
+  public void setUserId(int userId) {
+    this.userId = userId;
   }
 
   public String getCar() {
@@ -66,7 +66,7 @@ public class EmissionsDataStrings {
   @Override
   public String toString() {
     return "EmissionsDataStrings{" +
-        "user_id=" + user_id +
+        "user_id=" + userId +
         ", car='" + car + '\'' +
         ", fuel=" + fuel +
         ", utility=" + utility +
