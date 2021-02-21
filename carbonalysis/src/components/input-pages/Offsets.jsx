@@ -36,7 +36,7 @@ export default function InputAdornments() {
     <div className={classes.root}>
       <div>
         <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-offsets">How many trees</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-offsets">Trees planted</InputLabel>
           <OutlinedInput
             id="outlined-adornment-offsets"
             value={offsets}

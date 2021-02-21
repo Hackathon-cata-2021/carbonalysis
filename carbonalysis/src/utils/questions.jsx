@@ -47,7 +47,7 @@ export const carbonFootprintQuestions = [
     ]
   },
   {
-    label: 'Household purchases per year (furniture, electronics, other household gadgets',
+    label: 'Household purchases per year (furniture, electronics, other household gadgets)',
     name: 'purchases',
     options: [
       '<3',
@@ -164,7 +164,7 @@ export const inputQuestions = [
     label: 'Carbon offsets',
     name: 'offsets',
     options: [
-      'How many trees'
+      'How many trees have you planted?'
     ]
   },
 ]
