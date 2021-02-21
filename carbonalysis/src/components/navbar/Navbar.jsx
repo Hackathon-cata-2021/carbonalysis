@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import carbonalysisLogo from './carbonalysisLogo.png';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
+import styles from './NavBar.module.css'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     link: {
         color: "black",
         padding: "5px",
-        fontWeight: "bold"
+        fontWeight: "400",
+        marginLeft: "25px"
     }
 }));
 
@@ -34,7 +36,7 @@ export default function Navbar() {
             <AppBar position="fixed" className={classes.navbar}>
                 <Toolbar className={classes.root}>
                     <a href="/">
-                        <img src={carbonalysisLogo} />
+                        <img src={carbonalysisLogo} className={styles.logo} />
                     </a>
                     <Typography variant="h6" className={classes.title}>
                     </Typography>\

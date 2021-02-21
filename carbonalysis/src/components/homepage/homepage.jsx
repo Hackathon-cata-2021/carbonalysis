@@ -1,8 +1,9 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar';
+import styles from './Homepage.module.css'
+
 const homepage = () => {
     return (
-        <div>
+        <div className = {styles.body}>
             <p>Hello there</p>
         </div>
     )

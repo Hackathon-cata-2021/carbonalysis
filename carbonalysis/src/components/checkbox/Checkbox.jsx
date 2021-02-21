@@ -7,6 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 export default function Checkboxes() {
   const {
     recycle, setRecycle,
+    setRecycling
   } = useContext(carbonFootprintContext);
 
   const noRecycle = (event) => {
@@ -20,6 +21,7 @@ export default function Checkboxes() {
         steel: false,
         foodWaste: false
       });
+      setRecycling(0);
     }
   };
 
@@ -27,21 +29,27 @@ export default function Checkboxes() {
       switch (event.target.name) {
         case 'glass':
           setRecycle({ ...recycle, glass: event.target.checked, none: false});
+          setRecycling(prevState => prevState + 1);
           break;
         case 'plastic':
           setRecycle({ ...recycle, plastic: event.target.checked, none: false});
+          setRecycling(prevState => prevState + 1);
           break;
         case 'paper':
           setRecycle({ ...recycle, paper: event.target.checked, none: false});
+          setRecycling(prevState => prevState + 1);
           break;
         case 'aluminum':
           setRecycle({ ...recycle, aluminum: event.target.checked, none: false});
+          setRecycling(prevState => prevState + 1);
           break;
         case 'steel':
           setRecycle({ ...recycle, steel: event.target.checked, none: false});
+          setRecycling(prevState => prevState + 1);
           break;
         case 'foodWaste':
           setRecycle({ ...recycle, foodWaste: event.target.checked, none: false});
+          setRecycling(prevState => prevState + 1);
           break;
         default:
           break;
