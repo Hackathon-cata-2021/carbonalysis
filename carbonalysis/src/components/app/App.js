@@ -10,6 +10,7 @@ import Register from '../userEntryForms/Register';
 import Dashboard from '../dashboard/Dashboard';
 import Navbar from '../navbar/Navbar';
 import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
+import Logout from '../logout/Logout';
 
 function App() {
   const { token, setToken } = useContext(carbonFootprintContext);
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/carbon-footprint" component={FormPages} />
             <Route exact path="/carbon-emissions" component={Emissions} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/logout" component={Logout} />
           </Switch>
           </div>
         </Router>
