@@ -1,3 +1,4 @@
+import { useContext, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -8,13 +9,22 @@ import Login from '../userEntryForms/Login';
 import Register from '../userEntryForms/Register';
 import Dashboard from '../dashboard/Dashboard';
 import Navbar from '../navbar/Navbar';
+import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 import Logout from '../logout/Logout';
 
 function App() {
+  const { token, setToken } = useContext(carbonFootprintContext);
+
+  useEffect(() => {
+    if (sessionStorage.getItem('token') !== null) {
+      setToken(true);
+    }
+  })
+
   return (
     <div className="App">
         <Router>
-        <Navbar />
+        <Navbar token={token} />
           <div className="App-container">
           <Switch>
             <Route exact path="/" component={Homepage} />

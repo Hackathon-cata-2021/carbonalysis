@@ -31,8 +31,9 @@ const Login = () => {
         })
         .then((response) => {
             sessionStorage.setItem('token', response.data.jwt);
+            sessionStorage.setItem('userId', response.data.user.id);
             setUser(response.data.user);
-            history.push('/carbon-footprint');
+            history.push('/dashboard');
         })
         .catch(() => {
             setInvalidCredentials(true);
