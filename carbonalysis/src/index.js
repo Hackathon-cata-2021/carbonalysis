@@ -5,10 +5,8 @@ import App from './components/app/App';
 import { MainProvider } from './context/CarbonFootprintContext';
 
 ReactDOM.render(
-  <React.StrictMode>
     <MainProvider>
       <App />
-    </MainProvider>
-  </React.StrictMode>,
+    </MainProvider>,
   document.getElementById('root')
 );
