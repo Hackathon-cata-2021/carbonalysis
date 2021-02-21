@@ -8,18 +8,18 @@ const register = () => {
             <form className = {styles.formCard}>
                 <h1>Sign Up <u>FREE</u> Today!</h1>
                 <div className={styles.column}>
-                    <input placeholder="First name"></input> <br/>
-                    <input placeholder="Last name"></input> <br/>
-                    <input placeholder="Email"></input> <br/>
-                    <input placeholder="Password"></input> <br/>
-                    <input placeholder="Confirm password"></input>
+                    <input type="text" placeholder="First name"></input> <br/>
+                    <input type="text" placeholder="Last name"></input> <br/>
+                    <input type="email" placeholder="Email"></input> <br/>
+                    <input type="password" placeholder="Password"></input> <br/>
+                    <input type="password" placeholder="Confirm password"></input>
                 </div>
                 <div className={styles.column}>
-                    <input placeholder="Street Address"></input> <br/>
-                    <input placeholder="City"></input> <br/>
-                    <input placeholder="State"></input> <br/>
-                    <input placeholder="Zip Code"></input> <br/>
-                    <input placeholder="Country"></input>
+                    <input type="text" placeholder="Street Address"></input> <br/>
+                    <input type="text" placeholder="City"></input> <br/>
+                    <input type="text" placeholder="State"></input> <br/>
+                    <input type="text" placeholder="Zip Code"></input> <br/>
+                    <input type="text" placeholder="Country"></input>
                 </div>
                 <button>Sign Up!</button>
             </form>
