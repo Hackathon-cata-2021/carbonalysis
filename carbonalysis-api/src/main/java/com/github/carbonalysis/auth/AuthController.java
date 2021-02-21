@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/login")
-@CrossOrigin(origins = "http://localhost:3000/")
 public class AuthController {
   @Autowired
   UsersService usersService;
