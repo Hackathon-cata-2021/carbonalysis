@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
@@ -9,6 +9,9 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Radio from '../radio-button/Radio';
 import { carbonFootprintQuestions } from '../../utils/questions';
 import styles from './FormPages.module.css';
+import { useHistory } from 'react-router-dom';
+import HttpHelper from '../../utils/HttpHelper';
+import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +43,23 @@ export default function FormPages() {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = carbonFootprintQuestions.length;
 
+  const history = useHistory();
+
+  const {
+    householdSize,
+    homeSize,
+    food,
+    water1,
+    water2,
+    purchases,
+    waste,
+    transportation,
+    publicTransit,
+    flights,
+    recycling,
+    totalFootprint, setTotalFootprint
+  } = useContext(carbonFootprintContext);
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -47,6 +67,35 @@ export default function FormPages() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+
+  const handleSubmit = () => {
+    const payload = {
+      user_id: 5,
+      householdSize,
+      homeSize,
+      food,
+      water1,
+      water2,
+      purchases,
+      waste,
+      transportation,
+      publicTransit,
+      flights,
+      recycling
+    };
+  
+    HttpHelper('/footprint', 'POST', payload)
+      .then((response) => {
+        if (response.ok) {
+          history.push('/carbon-emissions');
+        } else {
+          throw new Error('oops something went wrong');
+        }
+      })
+      .catch((error) => {
+        throw new Error(error);
+      })
+  }
 
   return (
     <div className={classes.root}>
@@ -67,7 +116,7 @@ export default function FormPages() {
         nextButton={
           activeStep === (maxSteps - 1)
           ?
-          <Button type="submit">Submit</Button> 
+          <Button type="submit" onClick={handleSubmit}>Submit</Button> 
           :
           <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
             Next
