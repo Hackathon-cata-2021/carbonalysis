@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import styles from './Logout.module.css';
 import Background from './logoutImage.png';
 import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 
 const Logout = () => {
-    const { setUser } = useContext(carbonFootprintContext);
+    const { setUser, setToken } = useContext(carbonFootprintContext);
 
     sessionStorage.removeItem('token');
     
     useEffect(() => {
         setUser({});
+        setToken(false);
     });
 
     return(
