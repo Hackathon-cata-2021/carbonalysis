@@ -37,18 +37,11 @@ export default function Dashboard() {
     const footprintData = [
         { averages: 'userAverage', footprint: footprintRes },
         { averages: 'globalAverage', footprint: allFootprints }
-        // { date: '1970', footprint: 3.682 },
-        // { date: '1980', footprint: 4.440 },
-        // { date: '1990', footprint: 5.310 },
-
     ];
+
     const emissionsData = [
         { averages: 'userAverage', emissions: emissionsRes },
         { averages: 'globalAverage', emissions: allEmissions }
-        // { date: '1970', emissions: 3.682 },
-        // { date: '1980', emissions: 4.440 },
-        // { date: '1990', emissions: 5.310 },
-
     ];
 
     
@@ -145,10 +138,11 @@ export default function Dashboard() {
             });
         }
         
-          emissionsFetch();
-          footprintFetch();
-          getAllFootprints();
-          getAllEmissions();
+        emissionsFetch();
+        footprintFetch();
+
+        getAllFootprints();
+        getAllEmissions();
     }, [calculateAverage])
 
     return (
