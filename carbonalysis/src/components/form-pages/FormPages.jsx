@@ -46,6 +46,7 @@ export default function FormPages() {
   const history = useHistory();
 
   const {
+    user,
     householdSize,
     homeSize,
     food,
@@ -70,7 +71,7 @@ export default function FormPages() {
 
   const handleSubmit = () => {
     const payload = {
-      user_id: 5,
+      user_id: user.id,
       householdSize,
       homeSize,
       food,
