@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     maxWidth: '50rem',
-    minWidth: '50rem',
+    minWidth: '25rem',
     maxHeight: '50rem',
-    minHeight: '50rem'
+    minHeight: '25rem'
   },
   header: {
     display: 'flex',
@@ -82,38 +82,42 @@ export default function Emissions() {
   };
 
   return (
-    <div className={classes.root}>
-      <h1 className={styles.title}>CO2 Emissions Analyzer</h1>
-      <Paper square elevation={0} className={classes.header}>
-        <Typography>{co2Emissions[activeStep].label}</Typography>
-      </Paper>
-      <div className={styles.radioContainer}>
-        <RadioEmissions
-          co2Emissions={co2Emissions[activeStep]}
+    <div className={styles.questionnaireBody}>
+      <div className={styles.questionnaireCard}>
+        <div className={classes.root}>
+        <h1 className={styles.questionnaireTitle}>CO2 Emissions Analyzer</h1>
+        <Paper style={{backgroundColor:"white"}} square elevation={0} className={classes.header}>
+          <Typography>{co2Emissions[activeStep].label}</Typography>
+        </Paper>
+        <div className={styles.radioContainer}>
+          <RadioEmissions
+            co2Emissions={co2Emissions[activeStep]}
+          />
+        </div>
+        <MobileStepper
+          steps={maxSteps}
+          position="static"
+          variant="text"
+          activeStep={activeStep}
+          nextButton={
+            activeStep === (maxSteps - 1)
+            ?
+            <Button type="submit" onClick={handleSubmit}>Submit</Button> 
+            :
+            <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+              Next
+              {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+            </Button>
+          }
+          backButton={
+            <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+              Back
+            </Button>
+          }
         />
       </div>
-      <MobileStepper
-        steps={maxSteps}
-        position="static"
-        variant="text"
-        activeStep={activeStep}
-        nextButton={
-          activeStep === (maxSteps - 1)
-          ?
-          <Button type="submit" onClick={handleSubmit}>Submit</Button> 
-          :
-          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-            Next
-            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            Back
-          </Button>
-        }
-      />
+      </div>
     </div>
   );
 };

@@ -153,7 +153,7 @@ export default function Dashboard() {
             <div className={styles.dashColumnOne}>
                 <h1 className={styles.dashColumnHeading}>How You Compare Against The World</h1>
                 <div className={classes.chartContainer}>
-                    <Paper style={{boxShadow: "none"}} className={classes.barchart}>
+                    <Paper style={{boxShadow: "none", marginLeft:"100px"}} className={classes.barchart}>
                         <Chart
                             data={footprintData}
                         >
@@ -170,7 +170,7 @@ export default function Dashboard() {
                         </Chart>
                     </Paper>
 
-                    <Paper style={{boxShadow: "none"}} className={classes.barchart}>
+                    <Paper style={{boxShadow: "none", marginLeft:"100px"}} className={classes.barchart}>
                         <Chart
                             data={emissionsData}
                         >
@@ -191,7 +191,7 @@ export default function Dashboard() {
             <div className={styles.dashColumnTwo}>
                 <h1 className={styles.dashColumnHeading}>Your Stats</h1>
                 <div style={{textAlign: "left"}}class="MuiTypography-root Title-root-8 MuiTypography-h5">
-                    Avg. Footprint Emissions: <span style={{color:"#e4670c"}}>{footprintRes} points</span> <br/>
+                    Avg. Carbon Footprint: <span style={{color:"#e4670c"}}>{footprintRes} points</span> <br/>
                 </div>
                 <div style={{textAlign: "left"}}class="MuiTypography-root Title-root-8 MuiTypography-h5">
                     Avg. CO2 Emissions: <span style={{color:"#e4670c"}}>{emissionsRes} tons</span>
