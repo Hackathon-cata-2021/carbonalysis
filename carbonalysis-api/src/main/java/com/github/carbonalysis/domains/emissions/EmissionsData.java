@@ -15,7 +15,7 @@ public class EmissionsData {
   private Long id;
 
   @NotNull
-  private int user_id;
+  private int userId;
 
   @NotNull
   private Double car;
@@ -34,11 +34,11 @@ public class EmissionsData {
 
   public EmissionsData() {}
 
-  public EmissionsData(@NotNull int user_id,
+  public EmissionsData(@NotNull int userId,
       @NotNull Double car, @NotNull Double fuel,
       @NotNull Double utility, @NotNull Double offsets,
       @NotNull Double total_emissions) {
-    this.user_id = user_id;
+    this.userId = userId;
     this.car = car;
     this.fuel = fuel;
     this.utility = utility;
@@ -46,12 +46,12 @@ public class EmissionsData {
     this.total_emissions = total_emissions;
   }
 
-  public int getUser_id() {
-    return user_id;
+  public int getUserId() {
+    return userId;
   }
 
-  public void setUser_id(int user_id) {
-    this.user_id = user_id;
+  public void setUserId(int userId) {
+    this.userId = userId;
   }
 
   public Double getCar() {
@@ -98,7 +98,7 @@ public class EmissionsData {
   public String toString() {
     return "EmissionsData{" +
         "id=" + id +
-        ", user_id=" + user_id +
+        ", user_id=" + userId +
         ", car=" + car +
         ", fuel=" + fuel +
         ", utility=" + utility +

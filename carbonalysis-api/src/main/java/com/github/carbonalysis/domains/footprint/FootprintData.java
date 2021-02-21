@@ -1,5 +1,6 @@
 package com.github.carbonalysis.domains.footprint;
 
+import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +16,7 @@ public class FootprintData {
   private Long id;
 
   @NotNull
-  private int user_id;
-
-  @NotNull
-  private String date_and_time;
+  private int userId;
 
   @NotNull
   private int household_size;
@@ -56,14 +54,12 @@ public class FootprintData {
   public FootprintData() {
   }
 
-  public FootprintData(@NotNull int user_id,
-      @NotNull String date_and_time, @NotNull int household_size,
+  public FootprintData(@NotNull int userId, @NotNull int household_size,
       @NotNull int home_size, @NotNull int food, @NotNull int water,
       @NotNull int purchases, @NotNull int waste, @NotNull int recycle,
       @NotNull int transportation, @NotNull int public_transit,
       @NotNull int flights, @NotNull int total_footprint) {
-    this.user_id = user_id;
-    this.date_and_time = date_and_time;
+    this.userId = userId;
     this.household_size = household_size;
     this.home_size = home_size;
     this.food = food;
@@ -77,20 +73,12 @@ public class FootprintData {
     this.total_footprint = total_footprint;
   }
 
-  public int getUser_id() {
-    return user_id;
+  public int getUserId() {
+    return userId;
   }
 
-  public void setUser_id(int user_id) {
-    this.user_id = user_id;
-  }
-
-  public String getDate_and_time() {
-    return date_and_time;
-  }
-
-  public void setDate_and_time(String date_and_time) {
-    this.date_and_time = date_and_time;
+  public void setUserId(int userId) {
+    this.userId = userId;
   }
 
   public int getHousehold_size() {
@@ -185,8 +173,7 @@ public class FootprintData {
   public String toString() {
     return "FootprintData{" +
         "id=" + id +
-        ", user_id=" + user_id +
-        ", date_and_time='" + date_and_time + '\'' +
+        ", user_id=" + userId +
         ", household_size=" + household_size +
         ", home_size=" + home_size +
         ", food=" + food +

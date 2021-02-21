@@ -1,5 +1,6 @@
 package com.github.carbonalysis.domains.emissions;
 
+import com.github.carbonalysis.domains.footprint.FootprintData;
 import java.util.List;
 import javax.validation.Valid;
 import org.slf4j.Logger;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/emissions")
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmissionsDataController {
   private final Logger logger = LoggerFactory.getLogger(EmissionsDataController.class);
 
@@ -38,9 +39,15 @@ public class EmissionsDataController {
     return new ResponseEntity<>(emissionsDataService.getById(id), HttpStatus.OK);
   }
 
+  @GetMapping("/data/{id}")
+  public ResponseEntity<List<EmissionsData>> getEmissionsByUserId(@PathVariable Long id) {
+    logger.info("Get emissions by user id request received");
+    return new ResponseEntity<>(emissionsDataService.getByUserId(id), HttpStatus.OK);
+  }
+
   @PostMapping
   public ResponseEntity<EmissionsData> createEmissions(
-      @Valid @RequestBody EmissionsData emissionsData) {
+      @Valid @RequestBody EmissionsDataStrings emissionsData) {
     logger.info(" Post request received");
     return new ResponseEntity<>(emissionsDataService.createEmissionsData(emissionsData),
         HttpStatus.CREATED);
