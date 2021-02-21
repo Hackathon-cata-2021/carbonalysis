@@ -92,7 +92,7 @@ export default function FormPages() {
       }
     })
     .then(() => {
-        history.push('/carbon-emissions');
+        history.push('/dashboard');
     })
     .catch(() => {
         throw new Error();

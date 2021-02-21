@@ -31,16 +31,16 @@ export const MainProvider = ({ children }) => {
 
   const [car, setCar] = useState('');
   const [fuel, setFuel] = useState({
-    totalMiles: '',
-    mpg: ''
+    totalMiles: 0,
+    mpg: 0
   });
   const [utility, setUtility] = useState({
-    kilowatt: '',
-    naturalGas: '',
-    propane: '',
-    fuel: ''
+    kilowatt: 0,
+    naturalGas: 0,
+    propane: 0,
+    fuel: 0
   });
-  const [offsets, setOffsets] = useState('');
+  const [offsets, setOffsets] = useState('0');
   const [totalEmissions, setTotalEmissions] = useState('');
 
   return (
