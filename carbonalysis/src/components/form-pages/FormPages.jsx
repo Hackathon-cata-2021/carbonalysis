@@ -12,6 +12,7 @@ import styles from './FormPages.module.css';
 import { useHistory } from 'react-router-dom';
 import HttpHelper from '../../utils/HttpHelper';
 import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,7 +72,7 @@ export default function FormPages() {
 
   const handleSubmit = () => {
     const payload = {
-      user_id: user.id,
+      userId: user.id,
       householdSize,
       homeSize,
       food,
@@ -84,18 +85,47 @@ export default function FormPages() {
       flights,
       recycling
     };
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/footprint',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`
+      },
+      data: {
+        userId: user.id,
+        householdSize,
+        homeSize,
+        food,
+        water1,
+        water2,
+        purchases,
+        waste,
+        transportation,
+        publicTransit,
+        flights,
+        recycling
+      }
+    })
+    .then(() => {
+        history.push('/carbon-emissions');
+    })
+    .catch(() => {
+        throw new Error();
+    })
   
-    HttpHelper('/footprint', 'POST', payload)
-      .then((response) => {
-        if (response.ok) {
-          history.push('/carbon-emissions');
-        } else {
-          throw new Error('oops something went wrong');
-        }
-      })
-      .catch((error) => {
-        throw new Error(error);
-      })
+    // HttpHelper('/footprint', 'POST', payload)
+    //   .then((response) => {
+    //     if (response.ok) {
+    //       history.push('/carbon-emissions');
+    //     } else {
+    //       throw new Error('oops something went wrong');
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     throw new Error(error);
+    //   })
   }
 
   return (

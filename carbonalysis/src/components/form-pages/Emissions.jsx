@@ -59,24 +59,24 @@ export default function Emissions() {
 
   const handleSubmit = () => {
     const payload = {
-      user_id: user.id,
+      userId: user.id,
       car,
       fuel,
       utility,
       offsets
     };
   
-    HttpHelper('/emissions', 'POST', payload)
-      .then((response) => {
-        if (response.ok) {
-          history.push('/dashboard');
-        } else {
-          throw new Error('oops something went wrong');
-        }
-      })
-      .catch((error) => {
-        throw new Error(error);
-      })
+    // HttpHelper('/emissions', 'POST', payload)
+    //   .then((response) => {
+    //     if (response.ok) {
+    //       history.push('/dashboard');
+    //     } else {
+    //       throw new Error('oops something went wrong');
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     throw new Error(error);
+    //   })
   };
 
   return (
