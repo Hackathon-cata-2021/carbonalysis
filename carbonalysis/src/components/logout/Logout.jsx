@@ -7,7 +7,7 @@ import { carbonFootprintContext } from '../../context/CarbonFootprintContext';
 const Logout = () => {
     const { setUser, setToken } = useContext(carbonFootprintContext);
 
-    sessionStorage.removeItem('token');
+    sessionStorage.clear();
     
     useEffect(() => {
         setUser({});
